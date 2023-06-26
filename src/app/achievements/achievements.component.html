@@ -7,15 +7,15 @@
             <div class="card p-2 shadow-lg mb-5 bg-body-tertiary rounded border border-secondary-subtle text-center">
                 <div class="card-header py-0 bg-light d-block d-xl-none me-0">
                   <h5 class="card-title fs-2 mb-0 pb-0 text-info-emphasis">
-                    {{ item.org }}
+                    {{ item["org"] }}
                   </h5>
                 </div>
-                <div *ngIf="item.certs.length > 1" [id]="item.org + 'Carousel'" class="carousel slide" data-bs-ride="carousel">
+                <div *ngIf="item['certs'].length > 1" [id]="item['org'] + 'Carousel'" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
-                        <div *ngFor="let cert of item.certs; let i = index" class="carousel-item " [ngClass]="{'active': i === 0}" data-bs-interval="3000">
+                        <div *ngFor="let cert of item['certs']; let i = index" class="carousel-item " [ngClass]="{'active': i === 0}" data-bs-interval="3000">
                             <div class="card-body bg-light">
-                                <img [id]="cert.sno" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                                  [src]="'../assets/certs/'+ cert.path" class="img-fluid" [alt]="cert.name">
+                                <img [id]="cert['sno']" data-bs-toggle="modal" data-bs-target="#pdfModal"
+                                     [src]="'../assets/certs/'+ cert.path" class="img-fluid" [alt]="cert.name">
                             </div>
                             <div class="card-footer py-0 bg-light d-block d-xl-none text-secondary">
                                 <h6 class="fs-4">{{ cert.name }}</h6>
@@ -23,17 +23,17 @@
                         </div>
                     </div>
                   </div>
-                <div *ngIf="item.certs.length === 1" class="card-body bg-light">
-                    <img [id]="item.certs[0].sno" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                      [src]="'../assets/certs/'+ item.certs[0].path" class="img-fluid" [alt]="item.certs[0].name">
+                <div *ngIf="item['certs'].length === 1" class="card-body bg-light">
+                    <img [id]="item['certs'][0]['sno']" data-bs-toggle="modal" data-bs-target="#pdfModal"
+                         [src]="'../assets/certs/'+ item['certs'][0].path" class="img-fluid" [alt]="item['certs'][0].name">
                 </div>
-                <div *ngIf="item.certs.length === 1" class="card-footer py-0 bg-light d-block d-xl-none text-secondary">
-                    <h6 class="fs-4">{{ item.certs[0].name }}</h6>
+                <div *ngIf="item['certs'].length === 1" class="card-footer py-0 bg-light d-block d-xl-none text-secondary">
+                    <h6 class="fs-4">{{ item["certs"][0].name }}</h6>
                 </div>
             </div>
         </div>
       <div class="col-xl-5 text-center d-none d-xl-block" [ngClass]="{'order-lg-first': i % 2 != 0}">
-        <h3 class="text-info-emphasis display-4">{{ item.org }}</h3>
+        <h3 class="text-info-emphasis display-4">{{ item["org"] }}</h3>
       </div>
     </div>
 </div>
@@ -48,7 +48,7 @@
         </button>
       </div>
       <div class="modal-body text-center">
-        <embed src="" type="application/pdf">
+        <embed src="">
       </div>
       <div class="modal-footer">
         <h4 class="course-title fs-3 mx-auto"></h4>

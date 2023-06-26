@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { ResumeComponent } from './resume.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
+import {NgOptimizedImage} from "@angular/common";
 
 
 const routes: Routes = [
@@ -20,7 +21,7 @@ export class ResumeRoutingModule { }
 
 @NgModule({
   declarations: [ResumeComponent],
-    imports: [SharedModule, ResumeRoutingModule],
+  imports: [SharedModule, ResumeRoutingModule, NgOptimizedImage],
   providers: []
 })
 export class ResumeModule { }

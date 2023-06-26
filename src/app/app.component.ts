@@ -8,7 +8,7 @@ import {SharedService} from "./shared/shared.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  title: string = 'portfolio'
+  // title: string = 'portfolio'
   constructor(private router: Router, private sharedService: SharedService) {}
   @HostListener('window:scroll', ['$event'])
   onScroll() {

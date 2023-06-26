@@ -7,12 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
-
   imgPath: string = 'home_img1.png';
   heroText: string = "Hello, I'm Sujit Aluru";
-  heroDesc: string = "Web Designer & Frontend Developer"
-
-
+  heroDesc: string = "Web Designer & Frontend Developer";
 
   constructor() { }
 

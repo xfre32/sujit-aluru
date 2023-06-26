@@ -1,4 +1,4 @@
-import {Component, HostListener, OnInit} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import { SharedService } from '../shared.service';
 import { Router, Event, NavigationEnd } from '@angular/router';
 

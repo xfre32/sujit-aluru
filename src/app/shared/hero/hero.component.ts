@@ -1,4 +1,4 @@
-import {Component, HostListener, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-hero',
@@ -16,7 +16,5 @@ export class HeroComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
 
 }

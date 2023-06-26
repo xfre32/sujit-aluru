@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
 import { AchievementsComponent } from './achievements.component';
+import {NgOptimizedImage} from "@angular/common";
 
 const routes: Routes = [
     {
@@ -19,7 +20,7 @@ export class AchievementsRoutingModule { }
 
 @NgModule({
   declarations: [AchievementsComponent],
-  imports: [SharedModule, AchievementsRoutingModule],
+    imports: [SharedModule, AchievementsRoutingModule, NgOptimizedImage],
   providers: []
 })
 export class AchievementsModule { }

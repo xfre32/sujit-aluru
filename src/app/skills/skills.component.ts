@@ -9,7 +9,7 @@ export class SkillsComponent implements OnInit {
 
   imgPath: string = 'skills_img1.png';
   heroText: string = 'My Skills & Proficiency';
-  heroDesc: string = 'in Web Design & Developement';
+  heroDesc: string = 'in Web Design & Development';
 
   constructor() { }
 
