@@ -1,0 +1,30 @@
+<div class="container-fluid mx-0 mt-5 mb-0 px-0 pt-5 pb-0">
+  <div class="row">
+    <div class="col-12">
+      <footer class="footer mx-auto mt-5 vw-100">
+        <div *ngFor="let wave of footerWaves" class="waves">
+          <div class="wave" [id]="wave"></div>
+        </div>
+        <ul class="social-icon mx-auto mb-4 pb-2">
+          <li *ngFor="let item of footerIcons" class="social-icon__item mt-4 me-1">
+            <a class="social-icon__link" [href]="item.path" target="_blank">
+              <i [ngClass]="{'fa-solid': item.type === 'comm', 'fa-brands': item.type === 'media'}" [class]="'fa-2xl' + item.icon"></i>
+            </a>
+          </li>
+        </ul>
+        <ul class="menu mx-auto">
+          <li *ngFor="let item of footerNav" class="menu__item">
+            <a class="menu__link" [href]="item.path">{{ item.name }}</a>
+          </li>
+        </ul>
+        <p class="mx-auto">
+          <i class="fa-regular fa-copyright fa-sm"></i>
+          {{ currentYear }} &nbsp;
+          <span class="badge text-bg-light">Sujit Aluru</span> &nbsp;
+          | &nbsp; All Rights Reserved &nbsp;
+          <i class="fa-solid fa-hand-peace fa-2xl" style="color: #ffffff;"></i>
+        </p>
+      </footer>
+    </div>
+  </div>
+</div>

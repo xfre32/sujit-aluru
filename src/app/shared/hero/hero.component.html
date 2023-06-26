@@ -1,0 +1,19 @@
+  <div class="container-fluid px-5 bg-light vw-100">
+    <div class="row mx-auto mt-5 justify-content-center align-items-lg-baseline">
+      <div class="col-12 col-xl-6 text-center"
+      [ngClass]="{'order-xl-last': heroImageLeft}">
+        <img
+          class="img-fluid mb-4"
+          width="600px"
+          [src]="'../../../assets/' + heroImage"
+          alt="Hero image"
+        />
+      </div>
+      <div class="col-12 col-xl-6 text-center">
+
+        <h1 class="display-4 mt-0 mb-1">{{ heroText }}</h1>
+        <p class="lead fs-2 text-black-50">{{ heroDesc }}</p>
+
+      </div>
+    </div>
+  </div>
