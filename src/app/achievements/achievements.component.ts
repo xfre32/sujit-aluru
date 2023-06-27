@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {AfterContentInit, Component, OnInit} from '@angular/core';
 import { SharedService } from '../shared/shared.service';
 
 @Component({
@@ -6,55 +6,48 @@ import { SharedService } from '../shared/shared.service';
   templateUrl: './achievements.component.html',
   styleUrls: ['./achievements.component.css']
 })
-export class AchievementsComponent implements OnInit {
+export class AchievementsComponent implements OnInit, AfterContentInit {
 
   constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
     window.scroll(0, 0);
-    this.docLoadEventListener();
   }
 
-  docLoadEventListener() {
-    if (document.readyState !== 'loading') {
-      this.modalEventListener();
-    }
-    else {
-      document.addEventListener('DOMContentLoaded', () => {
-        this.modalEventListener();
-      })
-    }
-
+  ngAfterContentInit(): void {
+    this.modalEventListener();
   }
 
   modalEventListener() {
     const pdfModal = document.getElementById('pdfModal');
     if (pdfModal) {
-      console.log(pdfModal)
+      console.log('hello')
       pdfModal.addEventListener('show.bs.modal', (event: any) => {
+        console.log('modal event')
         const image = event.relatedTarget
         let id = image.getAttribute('id');
         let title = image.getAttribute('alt');
 
-        const modalTitle = pdfModal.querySelector('.modal-title');
         const courseTitle = pdfModal.querySelector('.course-title');
+        if(courseTitle) {
+          courseTitle.textContent = title;
+        }
         const pdfObject = pdfModal.querySelector('embed');
         if(pdfObject) {
           pdfObject.setAttribute('src', `${this.pdfSrc}/pdf${id}.pdf`);
         }
-        let courseOrg = '';
 
-        this.certsProps.forEach((element: any) => {
-          let cert = element.certs.find((cert: any) => cert.name === title);
+        const modalTitle = pdfModal.querySelector('.modal-title');
+        let courseOrg = '';
+        for (let index: number = 0; index < this.certsProps.length; index++) {
+          let cert = this.certsProps[index].certs.find((cert: any) => cert.name === title);
           if(cert) {
-            courseOrg = element.org;
-            return;
+            courseOrg = this.certsProps[index].org;
+            break;
           }
-          console.log(element.org)
-        })
-        if(modalTitle && courseTitle) {
-          modalTitle.textContent = courseOrg
-          courseTitle.textContent = title
+        }
+        if(modalTitle) {
+          modalTitle.textContent = courseOrg;
         }
       })
     }

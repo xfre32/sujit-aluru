@@ -14,21 +14,19 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="pdfModalLabel">PREVIEW</h1>
-        <button type="button" class="btn" data-bs-dismiss="modal">
+        <a title="close" type="button" class="btn" data-bs-dismiss="modal">
           <i class="fa-solid fa-circle-xmark fa-2xl"></i>
-        </button>
+        </a>
       </div>
       <div class="modal-body text-center">
         <embed src="../../assets/resume/resume.pdf">
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">
-          <a [href]="resumePdfSrc" download="resume_Sujit-Aluru" class="text-light">
+        <a class="btn btn-secondary" data-bs-dismiss="modal">Close</a>
+        <a type="button" class="btn btn-primary text-light" [href]="resumePdfSrc" download="resume_Sujit-Aluru">
             Download &nbsp;
             <i class="fa-solid fa-circle-down"></i>
-          </a>
-        </button>
+        </a>
       </div>
     </div>
   </div>
@@ -43,7 +41,7 @@
           <i class="fa-solid fa-file-pdf text-danger"></i>
         </h6>
       </button>
-      <img [src]="resumeSrc" alt="resume" class="img-fluid">
+      <img [ngSrc]="resumeSrc" width="1870" height="2420" alt="resume" class="img-fluid" priority="true">
     </div>
   </div>
 </div>

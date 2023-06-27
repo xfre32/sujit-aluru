@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit {
 
-  imgPath: string = 'skills_img1.png';
+  imgPath: string = 'skills_img.png';
   heroText: string = 'My Skills & Proficiency';
   heroDesc: string = 'in Web Design & Development';
 

@@ -4,9 +4,11 @@
       [ngClass]="{'order-xl-last': heroImageLeft}">
         <img
           class="img-fluid mb-4"
-          width="600px"
-          [src]="'../../../assets/' + heroImage"
+          width="600"
+          height="600"
+          [ngSrc]="'../../../assets/' + heroImage"
           alt="Hero image"
+          priority="true"
         />
       </div>
       <div class="col-12 col-xl-6 text-center">

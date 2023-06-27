@@ -10,11 +10,12 @@ export class HeroComponent implements OnInit {
   @Input() heroImage!: string;
   @Input() heroText!: string;
   @Input() heroDesc!: string;
-  @Input() heroImageLeft!: boolean
+  @Input() heroImageLeft!: boolean;
+
+
 
   constructor() {  }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
 }
