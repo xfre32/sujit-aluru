@@ -21,9 +21,7 @@ export class AchievementsComponent implements OnInit, AfterContentInit {
   modalEventListener() {
     const pdfModal = document.getElementById('pdfModal');
     if (pdfModal) {
-      console.log('hello')
       pdfModal.addEventListener('show.bs.modal', (event: any) => {
-        console.log('modal event')
         const image = event.relatedTarget
         let id = image.getAttribute('id');
         let title = image.getAttribute('alt');
