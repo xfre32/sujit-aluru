@@ -5,6 +5,11 @@
         <div *ngFor="let wave of footerWaves" class="waves">
           <div class="wave" [id]="wave"></div>
         </div>
+<!--        <div class="row justify-content-center">-->
+<!--          <div class="col-12 col-md-6 col-xl-4"></div>-->
+<!--          <div class="col-12 col-md-6 col-xl-4"></div>-->
+<!--          <div class="col-12 col-md-6 col-xl-4"></div>-->
+<!--        </div>-->
         <ul class="social-icon mx-auto mb-4 pb-2">
           <li *ngFor="let item of footerIcons" class="social-icon__item mt-4 me-1 me-md-3">
             <a title="social icon" class="social-icon__link" [href]="item.path" target="_blank">

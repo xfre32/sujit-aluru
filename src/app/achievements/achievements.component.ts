@@ -56,8 +56,6 @@ export class AchievementsComponent implements OnInit, AfterContentInit {
   heroText: string = 'My Certifications';
   heroDesc: string = 'endorsed by established Institutions & Organizations';
   pdfSrc: string = '../../assets/certs/pdfs';
-
-
   certsProps: any = [
     {
       org: 'Google Developer Experts',
@@ -185,5 +183,4 @@ export class AchievementsComponent implements OnInit, AfterContentInit {
       ]
     },
   ]
-
 }

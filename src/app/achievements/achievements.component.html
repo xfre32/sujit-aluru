@@ -15,9 +15,9 @@
                         <div *ngFor="let cert of item['certs']; let i = index" class="carousel-item " [ngClass]="{'active': i === 0}" data-bs-interval="3000">
                             <div class="card-body bg-light">
                                 <img [id]="cert['sno']" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                                [src]="'../assets/certs/'+ cert.path" class="img-fluid" [alt]="cert.name">
+                                [src]="'../assets/certs/'+ cert.path" class="d-block w-100" [alt]="cert.name">
                             </div>
-                            <div class="card-footer py-0 bg-light d-block d-xl-none text-secondary">
+                            <div class="card-footer py-0 px-0 bg-light d-block d-xl-none text-secondary">
                                 <h6 class="fs-4">{{ cert.name }}</h6>
                             </div>
                         </div>

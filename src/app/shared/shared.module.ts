@@ -7,7 +7,6 @@ import { FooterComponent } from './footer/footer.component';
 import { HeroComponent } from './hero/hero.component';
 import { RouterModule } from '@angular/router';
 
-
 @NgModule({
   declarations: [
     HeaderComponent,
@@ -27,6 +26,7 @@ import { RouterModule } from '@angular/router';
     BrowserModule,
     CommonModule,
     FormsModule,
+    NgOptimizedImage,
     HeaderComponent,
     FooterComponent,
     HeroComponent
