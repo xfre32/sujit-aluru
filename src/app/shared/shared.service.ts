@@ -12,23 +12,28 @@ export class SharedService {
   pageNavs: any[] = [
     {
       path: '',
-      name: 'Home'
+      name: 'Home',
+      icon: 'fa-house'
     },
     {
       path: 'skills',
-      name: 'Skills'
+      name: 'Skills',
+      icon: 'fa-star'
     },
     {
       path: 'projects',
-      name: 'Projects'
+      name: 'Projects',
+      icon: 'fa-folder'
     },
     {
       path: 'achievements',
-      name: 'Achievements'
+      name: 'Achievements',
+      icon: 'fa-medal'
     },
     {
       path: 'resume',
-      name: 'Résumé'
+      name: 'Résumé',
+      icon: 'fa-file'
     }
   ]
 

@@ -14,13 +14,7 @@ export class HeaderComponent implements OnInit {
   constructor(protected sharedService: SharedService,
     private router: Router) { }
 
-  ngOnInit(): void {
-    this.headerNav[0].icon = 'fa-house';
-    this.headerNav[1].icon = 'fa-star';
-    this.headerNav[2].icon = 'fa-folder';
-    this.headerNav[3].icon = 'fa-medal';
-    this.headerNav[4].icon = 'fa-file';
-  }
+  ngOnInit(): void {}
 
   headerNav: any[] = this.sharedService.pageNavs;
 
