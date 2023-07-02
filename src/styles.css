@@ -9,3 +9,22 @@ body {
 .vw-100 {
   width: 100vw;
 }
+
+.text-bs-purple {
+  color: #6528e0;
+}
+
+.text-ng-red {
+  color: #dd0031;
+}
+
+.bg-light-gray {
+  background-color: #cacccd
+}
+
+.text-light-gray {
+  color: #cacccd
+}
+
+
+

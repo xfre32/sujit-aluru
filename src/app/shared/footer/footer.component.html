@@ -1,7 +1,7 @@
 <div class="container-fluid mx-0 mt-5 mb-0 px-0 pt-5 pb-0">
   <div class="row">
     <div class="col-12 col-md-7">
-      <footer class="footer mt-5 py-3 px-5 vw-100">
+      <footer class="footer mt-5 pt-3 pb-1 px-5 vw-100">
         <div class="row justify-content-center align-items-center mt-5">
           <div *ngFor="let wave of footerWaves" class="waves">
             <div class="wave" [id]="wave"></div>
@@ -21,14 +21,28 @@
                 </a>
               </li>
             </ul>
-            <p class="lead text-center text-light mt-3 fs-5">
-              <i class="fa-regular fa-copyright fa-xs"></i>
-              {{ currentYear }}  <span class="badge text-bg-light p-1">Sujit Aluru</span> All Rights Reserved
-              <i class="fa-solid fa-hand-peace text-white"></i>
-            </p>
-            <p class="lead text-center text-light fs-5">
-              Built With Angular <i class="fa-solid fa-xmark fa-xs"></i> Bootstrap
-            </p>
+          </div>
+          <div class="col-12">
+            <hr class="border border-light-subtle border-1 opacity-25 d-block d-md-none mx-auto">
+            <hr class="border border-light-subtle border-1 opacity-25 d-none d-md-block d-xl-none w-75 mx-auto">
+            <hr class="border border-light-subtle border-1 opacity-25 d-none d-xl-block w-50 mx-auto">
+            <div class="row justify-content-center">
+              <div class="col-12 text-center">
+                <p class="lead text-light-gray fs-5">
+                  <i class="fa-regular fa-copyright fa-xs text-white-50 align-baseline"></i>
+                  {{ currentYear }}  <span class="px-1 fst-italic">Sujit Aluru</span> All Rights Reserved
+                  <i class="fa-solid fa-hand-peace text-white align-baseline"></i>
+                </p>
+              </div>
+              <div class="col-12 text-center">
+                <p class="lead badge bg-light-gray text-black fs-5">
+                  Built With
+                  <i class="fa-brands fa-angular fa-lg mx-1 text-ng-red"></i>
+                  <i class="fa-solid fa-bolt align-self-baseline fa-xs"></i>
+                  <i class="fa-brands fa-bootstrap fa-lg mx-1 text-bs-purple"></i>
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

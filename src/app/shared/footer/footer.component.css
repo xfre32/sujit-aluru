@@ -29,16 +29,8 @@
 }
 
 .footer p {
-  font-weight: 300;
+  font-weight: 100;
   font-family: 'Geologica', sans-serif;
-}
-
-p span {
-  vertical-align: text-top;
-}
-
-i.fa-xs{
-  vertical-align: middle;
 }
 
 .wave {

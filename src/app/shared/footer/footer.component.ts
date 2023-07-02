@@ -13,18 +13,7 @@ export class FooterComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  mouseEvent(event: any) {
-    // console.log(event)
-    // if(event.type === 'mouseover') {
-      const anchor = event.relatedTarget;
-      console.log(anchor)
-      let id = anchor.getAttribute('id');
-      console.log(id);
-    // }
-  }
-
   currentYear: number = this.sharedService.thisYear;
-  mousedOver: boolean = false;
   linkedInUrl: string = "https://www.linkedin.com/in/sujit-aluru/";
   gitHubUrl: string = "https://www.github.com/xfre32/";
   twitterUrl: string = "https://www.twitter.com/sn4ke8a8u/";
@@ -34,11 +23,6 @@ export class FooterComponent implements OnInit {
   footerWaves: string[] = ['wave1', 'wave2', 'wave3', 'wave4'];
 
   footerIcons: any[] = [
-    // {
-    //   type: 'comm',
-    //   icon: ' fa-square-phone',
-    //   path: this.telPointer
-    // },
     {
       name: 'mail',
       type: 'comm',
