@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
+import { SkillsComponent } from './skills.component';
 import { SharedModule } from '../shared/shared.module';
 import { RouterModule, Routes } from '@angular/router';
-import { SkillsComponent } from './skills.component';
 
 const routes: Routes = [
     {

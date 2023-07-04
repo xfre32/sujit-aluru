@@ -1,0 +1,13 @@
+h3, p {
+  font-family: 'Geologica', 'Poppins', sans-serif;
+}
+
+.progress {
+  height: 15px;
+  border-radius: 3px;
+}
+
+.progress-bar {
+  width: 0;
+  transition: width 1s ease-out;
+}
