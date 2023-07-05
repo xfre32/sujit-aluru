@@ -1,6 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared/shared.service';
-import {Target} from "@angular/compiler";
 
 @Component({
   selector: 'app-achievements',

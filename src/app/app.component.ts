@@ -14,6 +14,10 @@ export class AppComponent implements OnInit{
   onScroll() {
     this.sharedService.scrolled = window.scrollY !== 0;
   }
+  @HostListener('window:scrollend', ['$event'])
+  onScrollEnd() {
+    this.sharedService.scrolled = false;
+  }
   ngOnInit(): void {
     this.router.events.subscribe((event: Event) => {
       if(event instanceof NavigationEnd) {

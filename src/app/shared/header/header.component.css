@@ -11,6 +11,18 @@ i {
     vertical-align: baseline;
 }
 
+nav {
+  transition: all 0.8s ease-out;
+}
+
+.nav-link {
+  transition: transform 0.2s ease-out, color 0.2s ease-out;
+}
+
+.nav-link:hover {
+  transform: translateX(2px);
+}
+
 img {
   vertical-align: middle;
 }
