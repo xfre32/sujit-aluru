@@ -1,12 +1,13 @@
-import {AfterContentInit, Component, OnInit} from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared/shared.service';
+import {Target} from "@angular/compiler";
 
 @Component({
   selector: 'app-achievements',
   templateUrl: './achievements.component.html',
   styleUrls: ['./achievements.component.css']
 })
-export class AchievementsComponent implements OnInit, AfterContentInit {
+export class AchievementsComponent implements OnInit, AfterViewInit {
 
   constructor(private sharedService: SharedService) {}
 
@@ -14,8 +15,25 @@ export class AchievementsComponent implements OnInit, AfterContentInit {
     window.scroll(0, 0);
   }
 
-  ngAfterContentInit(): void {
+  ngAfterViewInit(): void {
     this.modalEventListener();
+    let allCards: NodeListOf<Element> = document.querySelectorAll('.card');
+    allCards.forEach((card: Element): void => {
+      this.observer.observe(card);
+    })
+  }
+
+  onMouseHover(event: any): void {
+    this.mouseHovered = event.type === 'mouseenter';
+    let hoveredCard: Element = event.target;
+    if(this.mouseHovered) {
+      hoveredCard.classList.add('card-hovered')
+      hoveredCard.classList.replace('shadow-sm', 'shadow-lg');
+    }
+    else {
+      hoveredCard.classList.remove('card-hovered');
+      hoveredCard.classList.replace('shadow-lg', 'shadow-sm');
+    }
   }
 
   modalEventListener() {
@@ -56,6 +74,18 @@ export class AchievementsComponent implements OnInit, AfterContentInit {
   heroText: string = 'My Certifications';
   heroDesc: string = 'endorsed by established Institutions & Organizations';
   pdfSrc: string = '../../assets/certs/pdfs';
+
+  mouseHovered: boolean = false;
+
+  observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]): void  => {
+    if(entries[0].isIntersecting) {
+      console.log('Element has just become visible in screen', entries[0].target.id);
+      let cardInView: Element = entries[0].target;
+      cardInView.classList.replace('p-0', 'p-2');
+      this.observer.unobserve(cardInView)
+    }
+  }, { threshold: [0.5, 0.8, 1] });
+
   certsProps: any = [
     {
       org: 'Google Developer Experts',

@@ -1,13 +1,23 @@
 h3, p {
   font-family: 'Geologica', 'Poppins', sans-serif;
+  transition: all 1s ease;
+}
+
+.progress-bar {
+  width: 0;
+  transition: all 1s ease;
 }
 
 .progress {
   height: 15px;
   border-radius: 3px;
+  transition: background-color 0.5s ease-out;
 }
 
-.progress-bar {
-  width: 0;
-  transition: width 1s ease-out;
+.card {
+  transition: 0.5s;
+}
+
+.card-hovered {
+  transform: translateY(-15px);
 }

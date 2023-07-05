@@ -6,7 +6,6 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit, AfterViewInit {
-
   constructor() {
   }
 
@@ -14,23 +13,18 @@ export class SkillsComponent implements OnInit, AfterViewInit {
     window.scroll(0, 0);
   }
 
-  ngAfterViewInit() {
-    this.contentView1 = document.querySelector('#card0');
-    this.contentView2 = document.querySelector('#card1');
-    this.contentView3 = document.querySelector('#card2');
-    this.contentView4 = document.querySelector('#card3');
-    this.animateProgressBarOnLoad();
+  ngAfterViewInit(): void {
+    let allCards: NodeListOf<Element> = document.querySelectorAll('.card');
+    allCards.forEach((card: Element) => {
+      this.observer.observe(card)
+    })
   }
 
   imgPath: string = 'skills_img.png';
   heroText: string = 'My Skills & Proficiency';
   heroDesc: string = 'in Web Design & Development';
 
-  contentView1: Element | null = null;
-  contentView2: Element | null = null;
-  contentView3: Element | null = null;
-  contentView4: Element | null = null;
-
+  mouseHovered: boolean = false;
 
   skillSet: any = [
     {
@@ -105,11 +99,16 @@ export class SkillsComponent implements OnInit, AfterViewInit {
         },
         {
           id: 'pb16',
+          skill: 'APIs & Integration',
+          percentage: 65
+        },
+        {
+          id: 'pb17',
           skill: 'Node.js',
           percentage: 40
         },
         {
-          id: 'pb17',
+          id: 'pb18',
           skill: 'MongoDB',
           percentage: 35
         },
@@ -164,33 +163,65 @@ export class SkillsComponent implements OnInit, AfterViewInit {
     }
   ]
 
-  animateProgressBarOnLoad() {
-    if(this.contentView1)
-      this.observer.observe(this.contentView1);
-    if(this.contentView2)
-      this.observer.observe(this.contentView2)
-    if(this.contentView3)
-      this.observer.observe(this.contentView3)
-    if(this.contentView4)
-      this.observer.observe(this.contentView4)
-  }
-
-  observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
+  observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]): void => {
     if(entries[0].isIntersecting){
-      let id: string | null = entries[0].target.getAttribute('id');
-      let index: number | undefined = Number(id?.charAt(id?.length - 1))
-      let progressBars: NodeListOf<Element> = document.querySelectorAll('.pb' + index)
-      progressBars.forEach((bar: any) => {
-        let percentage = bar.getAttribute('id').split('.')[1];
-        bar.setAttribute('style', `width: ${percentage}%`);
-      })
-      this.unObserve(entries[0].target)
-    }
-  }, { threshold: [0.5, 1] });
+      let cardInView: Element = entries[0].target
+      let cardId: string = cardInView.id;
+      let cardIndex: string = cardId.charAt(cardId.length - 1);
 
-  unObserve(subject: any) {
-    if(subject)
-      this.observer.unobserve(subject)
+      let cardChildren: NodeListOf<Element> = cardInView.querySelectorAll('.card-child' + cardIndex);
+      cardChildren.forEach((child: Element) => {
+        if(child.tagName === 'DIV' && child.hasAttribute('id')) {
+          let percentage: string = child.id.split('.')[1];
+          child.setAttribute('style', `width: ${percentage}%`);
+        }
+        else if(child.tagName === 'P') {
+          child.classList.replace('text-secondary', 'text-secondary-emphasis');
+        }
+        else {
+          child.classList.replace('text-black-50', 'text-info-emphasis');
+          child.classList.replace('fw-bold', 'fw-bolder')
+        }
+
+      })
+      this.observer.unobserve(cardInView)
+    }
+  }, { threshold: [0.5, 0.8, 1] });
+
+  onHover(event: any): void {
+    this.mouseHovered = event.type === 'mouseenter';
+    let hoveredCard = event.target;
+    let hoveredCardId = hoveredCard.id;
+    let hoveredCardIndex = hoveredCardId.charAt(hoveredCardId.length - 1);
+    let cardChildren = hoveredCard.querySelectorAll('.card-child' +  hoveredCardIndex);
+    if(this.mouseHovered) {
+      hoveredCard.classList.add('card-hovered');
+      hoveredCard.classList.replace('shadow-sm', 'shadow-lg');
+      cardChildren.forEach((child: Element) => {
+        if(child.tagName === 'DIV') {
+          if(child.hasAttribute('id')) {
+            child.classList.replace('bg-secondary', 'bg-dark-teal');
+          }
+          else {
+            child.classList.add('bg-light-gray');
+          }
+        }
+      })
+    }
+    else {
+      hoveredCard.classList.remove('card-hovered');
+      hoveredCard.classList.replace('shadow-lg', 'shadow-sm');
+      cardChildren.forEach((child: Element) => {
+        if(child.tagName === 'DIV') {
+          if(child.hasAttribute('id')) {
+            child.classList.replace('bg-dark-teal', 'bg-secondary');
+          }
+          else {
+            child.classList.remove('bg-light-gray');
+          }
+        }
+      })
+    }
   }
 
 }

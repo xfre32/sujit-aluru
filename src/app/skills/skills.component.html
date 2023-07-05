@@ -2,27 +2,30 @@
 </app-hero>
 
 <div class="container">
-  <div *ngFor="let item of skillSet; let i = index" class="row justify-content-center align-items-center mb-5">
-    <div class="col-12 col-lg-6 p-4">
-      <div class="card shadow-lg" [id]="'card' + i">
+  <div *ngFor="let item of skillSet; let i = index" class="row align-items-center mb-5">
+    <div class="col-12 col-lg-6 py-4" [ngClass]="{'order-last ms-auto': i % 2 !== 0, 'me-auto': i % 2 === 0}">
+      <div (mouseenter)="onHover($event)" (mouseleave)="onHover($event)"
+           class="card shadow-sm" [id]="'card' + i">
         <div class="card-body p-4">
           <div class="card-title mb-4">
-            <h3 class="card-title display-6 text-info-emphasis fw-bolder">
+            <h3 [class]="'card-title display-6 text-black-50 fw-bold card-child' + i">
               {{item.domain}}
             </h3>
           </div>
           <div *ngFor="let element of item['skills']" class="card-text">
-            <p class="fw-light text-black-50 mb-2 mt-4 fs-4">{{element["skill"]}}</p>
-            <div class="progress" role="progressbar">
+            <p [class]="'fw-light text-secondary mb-2 mt-4 fs-4 card-child' + i">
+              {{element["skill"]}}
+            </p>
+            <div [class]="'progress card-child' + i" role="progressbar">
               <div [id]="element.id +  '.' + element['percentage']"
-                   [class]="'progress-bar bg-secondary ' + 'pb' + i">
+                   [class]="'progress-bar bg-secondary card-child' + i">
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-    <div class="col-5 p-4" [ngClass]="{'order-first': i % 2 === 0}">
+    <div class="col-5 py-4" [ngClass]="{'me-auto': i % 2 !== 0, 'ms-auto': i % 2 === 0}">
       <img [src]="'../../assets/skills/' + item.image" alt="" class="img-fluid">
     </div>
   </div>

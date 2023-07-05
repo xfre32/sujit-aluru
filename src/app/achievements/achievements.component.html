@@ -3,8 +3,10 @@
 
 <div class="container mt-5 pt-4 pb-0">
     <div *ngFor="let item of certsProps; let i = index" class="row justify-content-center align-items-xl-center">
-        <div class="col-12 col-xl-7 py-4 px-2">
-            <div class="card p-2 shadow-lg mb-5 bg-body-tertiary rounded border border-secondary-subtle text-center">
+        <div class="col-12 col-xl-7 py-4" [ngClass]="{'ms-lg-auto': i % 2 !== 0, 'me-lg-auto': i % 2 === 0}">
+            <div (mouseenter)="onMouseHover($event)" (mouseleave)="onMouseHover($event)"
+                 class="card mb-5 p-0 shadow-sm bg-body-tertiary rounded border border-secondary-subtle text-center"
+                 [id]="'card' + i">
                 <div class="card-header py-0 bg-light d-block d-xl-none me-0">
                   <h5 class="card-title fs-2 mb-0 pb-0 text-info-emphasis">
                     {{ item["org"] }}
@@ -25,7 +27,7 @@
                  </div>
             </div>
         </div>
-        <div class="col-xl-5 text-center d-none d-xl-block" [ngClass]="{'order-lg-first': i % 2 != 0}">
+        <div class="col-xl-5 text-center d-none d-xl-block" [ngClass]="{'order-lg-first me-lg-auto': i % 2 !== 0, 'ms-lg-auto': i % 2 === 0}">
           <h3 class="text-info-emphasis display-4">{{ item["org"] }}</h3>
         </div>
     </div>

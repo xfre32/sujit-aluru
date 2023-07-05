@@ -22,6 +22,10 @@ body {
   background-color: #cacccd
 }
 
+.bg-dark-teal {
+  background-color: #055160;
+}
+
 .text-light-gray {
   color: #cacccd
 }

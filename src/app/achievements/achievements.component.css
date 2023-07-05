@@ -34,4 +34,9 @@ img {
 
 .card {
   border-radius: 15px;
+  transition: all 0.5s ease-out, padding 0.3s ease-in-out;
+}
+
+.card-hovered {
+  transform: translateY(-15px);
 }
