@@ -83,7 +83,7 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
       cardInView.classList.replace('p-0', 'p-2');
       this.observer.unobserve(cardInView)
     }
-  }, { threshold: [0.5, 0.8, 1] });
+  }, { threshold: [0.6, 0.8, 1] });
 
   certsProps: any = [
     {

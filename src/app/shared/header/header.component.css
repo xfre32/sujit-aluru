@@ -12,15 +12,15 @@ i {
 }
 
 nav {
-  transition: all 0.8s ease-out;
+  transition: box-shadow 0.8s ease-out;
 }
 
-.nav-link {
-  transition: transform 0.2s ease-out, color 0.2s ease-out;
+li a {
+  transition: background-color 0.2s ease-out, color 0.1s ease-out, font-weight 0.1s ease-out;
 }
 
-.nav-link:hover {
-  transform: translateX(2px);
+li a:hover {
+  background-color: #ebebeb;
 }
 
 img {

@@ -12,8 +12,6 @@ export class HeroComponent implements OnInit {
   @Input() heroDesc!: string;
   @Input() heroImageLeft!: boolean;
 
-
-
   constructor() {  }
 
   ngOnInit(): void {}
