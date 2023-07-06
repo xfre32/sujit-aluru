@@ -28,6 +28,10 @@ img {
   letter-spacing: 0.4rem;
 }
 
+h3.display-4 {
+  transition: opacity 1.5s ease-out;
+}
+
 .card-header, .card-body, .card-footer {
     border: none;
 }

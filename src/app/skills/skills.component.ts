@@ -17,7 +17,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
     let allCards: NodeListOf<Element> = document.querySelectorAll('.card');
     allCards.forEach((card: Element) => {
       this.observer.observe(card)
-    })
+    });
   }
 
   imgPath: string = 'skills_img.png';

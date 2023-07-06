@@ -3,14 +3,14 @@
       <div class="col-12 col-xl-6 text-center"
       [ngClass]="{'order-xl-last': heroImageLeft}">
         <img
-          class="img-fluid mb-4"
+          class="img-fluid mb-4 hero-section"
           width="600"
           height="600"
           [src]="'../../../assets/' + heroImage"
           alt="Hero image"
         />
       </div>
-      <div class="col-12 col-xl-6 text-center">
+      <div class="col-12 col-xl-6 text-center hero-section opacity-0">
         <h1 class="display-4 mt-0 mb-1">{{ heroText }}</h1>
         <p class="lead fs-2 text-black-50">{{ heroDesc }}</p>
       </div>

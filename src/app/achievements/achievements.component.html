@@ -28,7 +28,7 @@
             </div>
         </div>
         <div class="col-xl-5 text-center d-none d-xl-block" [ngClass]="{'order-lg-first me-lg-auto': i % 2 !== 0, 'ms-lg-auto': i % 2 === 0}">
-          <h3 class="text-info-emphasis display-4">{{ item["org"] }}</h3>
+          <h3 [id]="'org' + i" class="text-info-emphasis opacity-0 display-4">{{ item["org"] }}</h3>
         </div>
     </div>
 </div>

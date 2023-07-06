@@ -77,10 +77,11 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   mouseHovered: boolean = false;
 
   observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]): void  => {
+    let cardInView: Element = entries[0].target;
+    let orgOfTheCard: any = cardInView?.parentElement?.nextSibling?.childNodes[0];
     if(entries[0].isIntersecting) {
-      console.log('Element has just become visible in screen', entries[0].target.id);
-      let cardInView: Element = entries[0].target;
       cardInView.classList.replace('p-0', 'p-2');
+      orgOfTheCard.classList.replace('opacity-0', 'opacity-100');
       this.observer.unobserve(cardInView)
     }
   }, { threshold: [0.6, 0.8, 1] });
