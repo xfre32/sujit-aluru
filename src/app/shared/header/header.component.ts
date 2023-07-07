@@ -9,7 +9,7 @@ import { Router, Event, NavigationEnd } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  profilePicPath: string = '../../../assets/profile_img1.png'
+  profilePicPath: string = '../../../assets/profile_img.png'
 
   constructor(protected sharedService: SharedService,
     private router: Router) { }

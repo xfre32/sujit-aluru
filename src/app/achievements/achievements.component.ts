@@ -69,7 +69,7 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   }
 
   currYear: number = this.sharedService.thisYear;
-  imgPath: string = 'achievements_img1.png';
+  imgPath: string = 'achievements_img.png';
   heroText: string = 'My Certifications';
   heroDesc: string = 'endorsed by established Institutions & Organizations';
   pdfSrc: string = '../../assets/certs/pdfs';
@@ -78,13 +78,13 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
 
   observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]): void  => {
     let cardInView: Element = entries[0].target;
-    let orgOfTheCard: any = cardInView?.parentElement?.nextSibling?.childNodes[0];
+    let orgOfTheCard: any = cardInView.parentElement?.nextSibling?.childNodes[0];
     if(entries[0].isIntersecting) {
       cardInView.classList.replace('p-0', 'p-2');
       orgOfTheCard.classList.replace('opacity-0', 'opacity-100');
       this.observer.unobserve(cardInView)
     }
-  }, { threshold: [0.6, 0.8, 1] });
+  }, { threshold: [0.5, 0.6, 0.8, 1] });
 
   certsProps: any = [
     {

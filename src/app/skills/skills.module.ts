@@ -22,4 +22,4 @@ export class SkillsRoutingModule { }
   imports: [SharedModule, SkillsRoutingModule],
   providers: []
 })
-export class SkillsModule { }
+export class SkillsModule {}

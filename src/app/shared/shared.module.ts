@@ -32,4 +32,4 @@ import { RouterModule } from '@angular/router';
     HeroComponent
   ]
 })
-export class SharedModule { }
+export class SharedModule {}

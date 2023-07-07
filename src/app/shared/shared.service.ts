@@ -7,6 +7,7 @@ export class SharedService {
 
   thisYear: number = new Date().getFullYear();
   currPath: string = '';
+  previousPath: string = '';
   scrolled: boolean = false;
 
   pageNavs: any[] = [
@@ -37,6 +38,6 @@ export class SharedService {
     }
   ]
 
-  constructor() { }
+  constructor() {}
 
 }

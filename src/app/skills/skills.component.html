@@ -3,7 +3,7 @@
 
 <div class="container">
   <div *ngFor="let item of skillSet; let i = index" class="row align-items-center my-5">
-    <div class="col-12 col-md-12 mx-md-auto col-lg-7 col-xl-6 py-lg-4 py-0" [ngClass]="{'order-lg-last ms-lg-auto': i % 2 !== 0, 'me-lg-auto': i % 2 === 0}">
+    <div class="col-12 col-md-10 col-lg-6 col-xl-6 mx-md-auto py-lg-4 py-0" [ngClass]="{'order-lg-last ms-lg-auto': i % 2 !== 0, 'order-lg-first me-lg-auto': i % 2 === 0}">
       <div (mouseenter)="onHover($event)" (mouseleave)="onHover($event)"
            class="card shadow-sm" [id]="'card' + i">
         <div class="card-body p-4">
@@ -25,7 +25,7 @@
         </div>
       </div>
     </div>
-    <div class="col-md-10 mx-md-auto col-lg-5 col-xl-5 py-lg-4 py-0 d-none d-md-block" [ngClass]="{'me-lg-auto': i % 2 !== 0, 'ms-lg-auto': i % 2 === 0}">
+    <div class="d-none d-md-block col-md-9 col-lg-6 col-xl-5 order-md-first mx-md-auto py-lg-4 pb-4" [ngClass]="{'me-lg-auto': i % 2 !== 0, 'ms-lg-auto': i % 2 === 0}">
       <img [src]="'../../assets/skills/' + item.image" alt="" class="img-fluid">
     </div>
   </div>

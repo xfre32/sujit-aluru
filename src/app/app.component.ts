@@ -8,22 +8,26 @@ import {SharedService} from "./shared/shared.service";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent implements OnInit{
-  // title: string = 'portfolio'
+
   constructor(private router: Router, private sharedService: SharedService) {}
+
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     this.sharedService.scrolled = window.scrollY !== 0;
   }
+
   @HostListener('window:scrollend', ['$event'])
   onScrollEnd() {
     this.sharedService.scrolled = false;
   }
+
   ngOnInit(): void {
-    this.router.events.subscribe((event: Event) => {
+    this.router.events.subscribe((event: Event): void => {
       if(event instanceof NavigationEnd) {
+        this.sharedService.previousPath = this.sharedService.currPath;
         this.sharedService.currPath = event.url.split('/')[1];
       }
-    })
-
+    });
   }
+
 }

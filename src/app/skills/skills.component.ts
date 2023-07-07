@@ -6,6 +6,7 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit, AfterViewInit {
+
   constructor() {
   }
 
@@ -18,6 +19,42 @@ export class SkillsComponent implements OnInit, AfterViewInit {
     allCards.forEach((card: Element) => {
       this.observer.observe(card)
     });
+  }
+
+  onHover(event: any): void {
+    this.mouseHovered = event.type === 'mouseenter';
+    let hoveredCard = event.target;
+    let hoveredCardId = hoveredCard.id;
+    let hoveredCardIndex = hoveredCardId.charAt(hoveredCardId.length - 1);
+    let cardChildren = hoveredCard.querySelectorAll('.card-child' +  hoveredCardIndex);
+    if(this.mouseHovered) {
+      hoveredCard.classList.add('card-hovered');
+      hoveredCard.classList.replace('shadow-sm', 'shadow-lg');
+      cardChildren.forEach((child: Element) => {
+        if(child.tagName === 'DIV') {
+          if(child.hasAttribute('id')) {
+            child.classList.replace('bg-secondary', 'bg-dark-teal');
+          }
+          else {
+            child.classList.add('bg-light-gray');
+          }
+        }
+      })
+    }
+    else {
+      hoveredCard.classList.remove('card-hovered');
+      hoveredCard.classList.replace('shadow-lg', 'shadow-sm');
+      cardChildren.forEach((child: Element) => {
+        if(child.tagName === 'DIV') {
+          if(child.hasAttribute('id')) {
+            child.classList.replace('bg-dark-teal', 'bg-secondary');
+          }
+          else {
+            child.classList.remove('bg-light-gray');
+          }
+        }
+      })
+    }
   }
 
   imgPath: string = 'skills_img.png';
@@ -187,41 +224,5 @@ export class SkillsComponent implements OnInit, AfterViewInit {
       this.observer.unobserve(cardInView)
     }
   }, { threshold: [0.5, 0.8, 1] });
-
-  onHover(event: any): void {
-    this.mouseHovered = event.type === 'mouseenter';
-    let hoveredCard = event.target;
-    let hoveredCardId = hoveredCard.id;
-    let hoveredCardIndex = hoveredCardId.charAt(hoveredCardId.length - 1);
-    let cardChildren = hoveredCard.querySelectorAll('.card-child' +  hoveredCardIndex);
-    if(this.mouseHovered) {
-      hoveredCard.classList.add('card-hovered');
-      hoveredCard.classList.replace('shadow-sm', 'shadow-lg');
-      cardChildren.forEach((child: Element) => {
-        if(child.tagName === 'DIV') {
-          if(child.hasAttribute('id')) {
-            child.classList.replace('bg-secondary', 'bg-dark-teal');
-          }
-          else {
-            child.classList.add('bg-light-gray');
-          }
-        }
-      })
-    }
-    else {
-      hoveredCard.classList.remove('card-hovered');
-      hoveredCard.classList.replace('shadow-lg', 'shadow-sm');
-      cardChildren.forEach((child: Element) => {
-        if(child.tagName === 'DIV') {
-          if(child.hasAttribute('id')) {
-            child.classList.replace('bg-dark-teal', 'bg-secondary');
-          }
-          else {
-            child.classList.remove('bg-light-gray');
-          }
-        }
-      })
-    }
-  }
 
 }
