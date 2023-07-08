@@ -6,7 +6,7 @@
 
 .social-icon__link {
   display: inline-block;
-  transition: 0.5s;
+  transition: 0.2s;
 }
 
 .social-icon__link:hover {
@@ -15,7 +15,7 @@
 
 .menu__link {
   display: inline-block;
-  transition: 0.5s;
+  transition: all 0.1s ease-out;
   font-weight: 300;
   font-family: 'Geologica', sans-serif;
 }

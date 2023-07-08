@@ -16,7 +16,8 @@
             </ul>
             <ul class="list-group list-group-horizontal d-flex flex-wrap justify-content-center">
               <li *ngFor="let item of footerNav" class="list-group-item bg-transparent border border-0 px-2 py-1">
-                <a class="menu__link fs-5 text-light opacity-75 text-decoration-none" [href]="item.path">
+                <a [ngClass]="{'fw-bolder': sharedService.currPath === item.path, 'opacity-75': sharedService.currPath !== item.path}"
+                   [routerLink]="[item.path]" class="menu__link fs-5 text-light text-decoration-none">
                   <i [class]="'fa-solid ' + item.icon"></i> {{ item.name }}
                 </a>
               </li>

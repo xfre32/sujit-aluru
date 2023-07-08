@@ -8,7 +8,7 @@ import { SharedService } from '../shared.service';
 })
 export class FooterComponent implements OnInit {
 
-  constructor(private sharedService: SharedService) { }
+  constructor(protected sharedService: SharedService) { }
 
   ngOnInit(): void {
   }
@@ -18,7 +18,6 @@ export class FooterComponent implements OnInit {
   gitHubUrl: string = "https://www.github.com/xfre32/";
   twitterUrl: string = "https://www.twitter.com/sn4ke8a8u/";
   mailPointer: string = "mailto:sa2ooodec@gmail.com";
-  telPointer: string = "tel:+919176304528";
 
   footerWaves: string[] = ['wave1', 'wave2', 'wave3', 'wave4'];
 
