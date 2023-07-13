@@ -205,12 +205,13 @@ export class SkillsComponent implements OnInit, AfterViewInit {
       let cardInView: Element = entries[0].target
       let cardId: string = cardInView.id;
       let cardIndex: string = cardId.charAt(cardId.length - 1);
-
       let cardChildren: NodeListOf<Element> = cardInView.querySelectorAll('.card-child' + cardIndex);
-      cardChildren.forEach((child: Element) => {
+      cardChildren.forEach((child: Element, index: number) => {
         if(child.tagName === 'DIV' && child.hasAttribute('id')) {
           let percentage: string = child.id.split('.')[1];
-          child.setAttribute('style', `width: ${percentage}%`);
+          setTimeout(() => {
+            child.setAttribute('style', `width: ${percentage}%`);
+          }, index * 10)
         }
         else if(child.tagName === 'P') {
           child.classList.replace('text-secondary', 'text-secondary-emphasis');

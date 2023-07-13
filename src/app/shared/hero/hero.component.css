@@ -10,20 +10,22 @@ p {
 }
 
 .slide-in-left {
-  animation: fade-in-from-left 0.3s ease-in-out;
+  animation: fade-in-from-left 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .slide-in-right {
-  animation: fade-in-from-right 0.3s ease-in-out;
+  animation: fade-in-from-right 0.7s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 @keyframes fade-in-from-left {
   0% {
     opacity: 0;
-    transform: translateX(-20px);
+    filter: blur(10px);
+    transform: translateX(-100px);
   }
   100 % {
     opacity: 1;
+    filter: blur(0);
     transform: translateX(0);
   }
 }
@@ -31,10 +33,12 @@ p {
 @keyframes fade-in-from-right {
   0% {
     opacity: 0;
-    transform: translateX(20px);
+    filter: blur(10px);
+    transform: translateX(100px);
   }
   100 % {
     opacity: 1;
+    filter: blur(0);
     transform: translateX(0);
   }
 }

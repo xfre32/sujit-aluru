@@ -1,2 +1,76 @@
 <app-hero [heroImage]="imgPath" [heroText]="heroText" [heroDesc]="heroDesc" [heroImageLeft]="false">
 </app-hero>
+
+<div class="container mt-5">
+  <section *ngFor="let section of aboutMe" class="row about-me px-5 py-3 p-md-3 mx-auto">
+    <h1 class="display-6 fw-lighter opacity-0">{{ section.section }}</h1>
+    <h2 class="display-4 fw-bolder opacity-0">{{ section.caption }}</h2>
+    <div *ngFor="let item of section['items']; let i = index" class="col-12 col-md-6 col-lg-4 opacity-0">
+      <h3 class="display-1 fw-bolder text-secondary">{{ i + 1  | leadingZero}}</h3>
+      <h4 class="fs-5 fw-semibold text-primary">{{ item['org'] }}</h4>
+      <h4 class="fs-6 fw-semibold text-secondary">{{ item.role }}, {{ item.duration }}</h4>
+      <p class="fs-6 lead fw-lighter text-black">{{ item.description }}</p>
+    </div>
+    <hr class="border border-light-subtle border-1 w-25 opacity-0 mx-auto">
+  </section>
+
+  <section class="row bg-body-secondary align-items-center rounded-3 opacity-0 phil-values p-0 mx-auto my-3">
+    <div class="col-12 col-lg-6 col-xl-8 p-5 pe-lg-2 pb-0 pb-lg-5">
+      <h1 class="display-4 fw-bolder text-black opacity-0">{{ philosophicalValuesSection.section }}</h1>
+      <hr class="border border-dark-subtle border-1 w-25 opacity-0">
+      <p class="fs-4 lead fw-lighter text-black opacity-0">{{ philosophicalValuesSection["philosophicalValue"] }}</p>
+    </div>
+    <div class="col-12 col-md-9 col-lg-6 col-xl-4 opacity-0 mx-auto ">
+      <img [src]="philosophicalValuesSection['imageSrc']" alt="philosophical values" class="img-fluid">
+    </div>
+  </section>
+
+  <section class="row mx-auto skillset p-3 my-5">
+    <h1 class="display-4 fw-bolder mb-4">Skillset</h1>
+    <p class="lead">
+      <a class="link-underline-dark link-offset-3 py-2 know-more" routerLink="/skills">
+        Know More
+      </a>
+    </p>
+    <hr class="border border-light-subtle border-1 opacity-100 mx-auto">
+  </section>
+
+  <section class="row mx-auto skillset p-3 my-5">
+    <h1 class="display-4 fw-bolder mb-4">My Projects</h1>
+    <p class="lead">
+      <a class="link-underline-dark link-offset-3 py-2 know-more" routerLink="/projects">Know More</a>
+    </p>
+    <hr class="border border-light-subtle border-1 opacity-100 mx-auto">
+  </section>
+
+  <section class="row getInTouch justify-content-center mx-auto p-3 mt-5 align-items-auto">
+    <div class="col-12 col-lg-4 col-xl-4 me-auto opacity-0">
+      <img [src]="getInTouchSection['imgPath']" [alt]="getInTouchSection.section" class="img-fluid">
+    </div>
+    <div class="col-12 col-lg-8 col-xl-7 ms-auto">
+      <h1 class="display-4 fw-bolder mb-4 opacity-0">{{ getInTouchSection.section }}</h1>
+      <form [action]="getInTouchSection.formAction" [method]="getInTouchSection.formMethod" class="row opacity-0 needs-validation" novalidate>
+        <div *ngFor="let item of getInTouchSection['formElements']" [class]="'col-12 form-floating mb-3 ' + item.cols">
+          <input *ngIf="item['fieldType'] === 'I'" [type]="item.inputType" class="form-control border-3 border-secondary"
+                 [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" required>
+          <textarea *ngIf="item['fieldType'] === 'T'" class="form-control border-3 border-secondary" [placeholder]="item.placeholder"
+                    [name]="item.id" [id]="item.id" required></textarea>
+          <button *ngIf="item['fieldType'] === 'B'" class="btn btn-dark btn-lg rounded-1" [name]="item.id" [type]="item.inputType">
+            <i class="fa-solid fa-paper-plane"></i>
+          </button>
+          <label *ngIf="item.label" class="floating-form-label px-3 mx-2" [for]="item.id">{{ item.label }}</label>
+        </div>
+      </form>
+    </div>
+
+    <div id="mail-sent-toast" class="toast text-bg-dark border-0 position-fixed top-12 end-5" role="alert">
+      <div class="d-flex">
+        <div class="toast-body fs-5">
+          Message Sent successfully
+        </div>
+        <i class="fa-solid fa-check fa-xl align-middle ms-auto me-2 my-auto"></i>
+      </div>
+    </div>
+  </section>
+
+</div>

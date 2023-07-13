@@ -14,15 +14,6 @@ h5 {
   font-weight: 600;
 }
 
-embed {
-  width: 100%;
-  height: 500px;
-}
-
-img {
-  cursor: pointer;
-}
-
 .display-1 {
   font-weight: 500;
   letter-spacing: 0.4rem;
@@ -30,6 +21,15 @@ img {
 
 h3.display-4 {
   transition: opacity 1s ease-in-out;
+}
+
+embed {
+  width: 100%;
+  height: 500px;
+}
+
+img {
+  cursor: pointer;
 }
 
 .card-header, .card-body, .card-footer {

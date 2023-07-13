@@ -1,6 +1,8 @@
 <app-hero [heroImage]="imgPath" [heroText]="heroText" [heroDesc]="heroDesc" [heroImageLeft]="true">
 </app-hero>
 
+<!--Cards & Carousel code-->
+
 <div class="container mt-5 pt-4 pb-0">
     <div *ngFor="let item of certsProps; let i = index" class="row justify-content-center align-items-xl-center">
         <div class="col-12 col-xl-7 py-4" [ngClass]="{'ms-lg-auto': i % 2 !== 0, 'me-lg-auto': i % 2 === 0}">
@@ -33,6 +35,10 @@
     </div>
 </div>
 
+<!--Cards & Carousel code-->
+
+<!--Modal code-->
+
 <div class="modal fade" id="pdfModal" tabindex="-1">
   <div class="modal-dialog modal-xl modal-fullscreen-xl-down modal-dialog-centered">
     <div class="modal-content">
@@ -51,3 +57,5 @@
     </div>
   </div>
 </div>
+
+<!--Modal Code-->

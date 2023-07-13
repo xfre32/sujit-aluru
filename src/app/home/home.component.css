@@ -1,0 +1,100 @@
+h1, h2, h3, h4, p, button, .toast-body {
+  font-family: 'Geologica', sans-serif;
+}
+
+hr {
+  transition: all 1s ease-in-out;
+}
+
+.know-more {
+  color: #212529;
+  transition: all 0.2s ease-in-out;
+}
+
+.know-more:hover {
+  padding-left: 15px;
+  padding-right: 15px;
+  color: #f8f9fa;
+  background-color: #212529;
+}
+
+.top-12 {
+  top: 12% !important;
+}
+
+.end-5 {
+  right: 5% !important;
+}
+
+form .floating-form-label {
+  font-family: 'Geologica', sans-serif;
+  font-weight: normal;
+}
+
+textarea.form-control {
+  height: 150px;
+}
+
+.show {
+  animation: slide-from-top 0.8s ease-in-out;
+}
+
+.section-list-animation {
+  animation: slide-in-from-left 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-headings-animation {
+  animation: fade-in 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-background-animation {
+  animation: fade-in-move-up 1s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes slide-in-from-left {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateX(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translateX(0);
+  }
+
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+
+}
+
+@keyframes fade-in-move-up {
+  0% {
+    opacity: 0;
+    filter: blur(20px);
+    transform: translate(100px, 100px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+    transform: translate(0, 0);
+  }
+
+}
+
+@keyframes slide-from-top {
+  0% {
+    transform: translateY(-50px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}

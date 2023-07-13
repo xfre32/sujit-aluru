@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { SharedService } from '../shared/shared.service';
+import { Carousel } from "bootstrap";
 
 @Component({
   selector: 'app-achievements',
@@ -15,11 +16,20 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    let carousels: NodeListOf<HTMLElement> = document.querySelectorAll('.carousel');
+    carousels.forEach((carousel: HTMLElement): void => {
+      this.startCarouselCycle(carousel)
+    })
     this.modalEventListener();
-    let allCards: NodeListOf<Element> = document.querySelectorAll('.card');
-    allCards.forEach((card: Element): void => {
+    let allCards: NodeListOf<HTMLElement> = document.querySelectorAll('.card');
+    allCards.forEach((card: HTMLElement): void => {
       this.observer.observe(card);
     })
+  }
+
+  startCarouselCycle(carousel: any): void {
+    const carouselBootstrap: Carousel = Carousel.getOrCreateInstance(carousel);
+    carouselBootstrap.cycle();
   }
 
   onMouseHover(event: any): void {
@@ -36,14 +46,14 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   }
 
   modalEventListener() {
-    const pdfModal = document.getElementById('pdfModal');
+    const pdfModal: HTMLElement | null = document.getElementById('pdfModal');
     if (pdfModal) {
       pdfModal.addEventListener('show.bs.modal', (event: any) => {
         const image = event.relatedTarget
         let id = image.getAttribute('id');
         let title = image.getAttribute('alt');
 
-        const courseTitle = pdfModal.querySelector('.course-title');
+        const courseTitle: Element | null = pdfModal.querySelector('.course-title');
         if(courseTitle) {
           courseTitle.textContent = title;
         }
