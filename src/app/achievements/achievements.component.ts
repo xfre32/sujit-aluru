@@ -91,7 +91,8 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
     let orgOfTheCard: any = cardInView.parentElement?.nextSibling?.childNodes[0];
     if(entries[0].isIntersecting) {
       cardInView.classList.replace('p-0', 'p-2');
-      orgOfTheCard.classList.replace('opacity-0', 'opacity-100');
+      orgOfTheCard.classList.remove('opacity-0');
+      orgOfTheCard.classList.add('heading-animation');
       this.observer.unobserve(cardInView)
     }
   }, { threshold: [0.5, 0.6, 0.8, 1] });

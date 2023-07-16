@@ -106,6 +106,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }, 100)
       }
 
+      else if(sectionInView.className.includes('strengths')) {
+        let sectionHeading: Element = sectionInView.children[0].children[0];
+        let sectionCaption: Element = sectionInView.children[0].children[1];
+        let sectionLink: Element = sectionInView.children[0].children[2];
+        let sectionStrengths: Element = sectionInView.children[1];
+        let horRule: Element = sectionInView.children[2];
+        sectionHeading.classList.remove('opacity-0');
+        sectionHeading.classList.add('section-headings-animation');
+        horRule.classList.replace('w-25', 'w-100');
+        horRule.classList.replace('opacity-0', 'opacity-100');
+        setTimeout(() => {
+          sectionCaption.classList.remove('opacity-0');
+          sectionCaption.classList.add('section-list-animation');
+          sectionLink.classList.remove('opacity-0');
+          sectionLink.classList.add('section-list-animation');
+          setTimeout(() => {
+            sectionStrengths.classList.remove('opacity-0');
+            sectionStrengths.classList.add('section-list-animation');
+          }, 100)
+        }, 100)
+      }
+
       this.observer.unobserve(sectionInView)
     }
   }, { threshold: [0.5, 0.6, 0.7, 0.8, 1] })
@@ -170,6 +192,35 @@ export class HomeComponent implements OnInit, AfterViewInit {
       '          Authenticity, my guiding light, illuminating the way, where true connections ignite.\n' +
       '        ',
     imageSrc: '../../assets/home/philosophical-value_img.png'
+  }
+
+  strengthsSection: any = {
+    section: 'Strengths',
+    caption: 'With a natural intuition for UI development, I excel in crafting visually appealing, user-friendly interfaces &\n' +
+      '       writing efficient & non-redundant code, ensuring responsive designs across devices.\n' +
+      '       With Problem-solving at the core of my abilities, allows me to tackle complex challenges & deliver efficient UIs that captivate users & provide a smooth, intuitive interface.',
+    strengths: [
+      {
+        name: 'UI Development',
+        description: 'My expertise lies in translating complex requirements into intuitive & engaging user experiences.',
+        icon: 'fa-code'
+      },
+      {
+        name: 'Responsive Design',
+        description: 'I strive to implement efficient design principles to ensure that my interfaces adapt seamlessly to different screen sizes & devices.',
+        icon: 'fa-palette'
+      },
+      {
+        name: 'Problem Solving',
+        description: 'I leverage my Problem Solving skills to find creative solutions for user interaction issues or to address compatibility concerns across devices.',
+        icon: 'fa-puzzle-piece'
+      },
+      {
+        name: 'Efficient Code',
+        description: 'I prioritize writing clean, optimized code that minimizes redundancy & maximizes performance.',
+        icon: 'fa-gears'
+      },
+    ]
   }
 
   getInTouchSection: any = {

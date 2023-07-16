@@ -25,40 +25,44 @@
     </div>
   </section>
 
-  <section class="row mx-auto skillset p-3 my-5">
-    <h1 class="display-4 fw-bolder mb-4">Skillset</h1>
-    <p class="lead">
-      <a class="link-underline-dark link-offset-3 py-2 know-more" routerLink="/skills">
-        Know More
-      </a>
-    </p>
-    <hr class="border border-light-subtle border-1 opacity-100 mx-auto">
+  <section class="row strengths px-3 py-lg-5 my-5">
+    <div class="col-12 col-lg-5 me-auto">
+      <h1 class="display-4 fw-bolder mb-4 opacity-0">{{strengthsSection.section}}</h1>
+      <p class="lead fs-5 text-secondary pe-lg-5 mb-4 opacity-0">{{ strengthsSection.caption }}</p>
+      <p class="lead opacity-0">
+        <a class="link-underline-dark link-offset-3 py-2 know-more" routerLink="/skills">Know More</a>
+      </p>
+    </div>
+    <div class="col-12 col-lg-7 ms-auto opacity-0">
+      <div class="row justify-content-center">
+        <div *ngFor="let strength of strengthsSection['strengths']" class="col-6 my-3">
+          <i [class]="'fa-solid fa-2xl fs-1 mb-4 ' + strength.icon"></i>
+          <h3 class="lead fs-4 fw-bold text-start mt-3">{{ strength.name }}</h3>
+          <p class="lead fs-6 fw-lighter">
+            {{ strength.description }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <hr class="border border-light-subtle border-1 opacity-100 mx-auto w-25 opacity-0">
   </section>
 
-  <section class="row mx-auto skillset p-3 my-5">
-    <h1 class="display-4 fw-bolder mb-4">My Projects</h1>
-    <p class="lead">
-      <a class="link-underline-dark link-offset-3 py-2 know-more" routerLink="/projects">Know More</a>
-    </p>
-    <hr class="border border-light-subtle border-1 opacity-100 mx-auto">
-  </section>
-
-  <section class="row getInTouch justify-content-center mx-auto p-3 mt-5 align-items-auto">
-    <div class="col-12 col-lg-4 col-xl-4 me-auto opacity-0">
+  <section class="row getInTouch justify-content-center mx-auto p-3 mt-lg-5 align-items-auto">
+    <div class="col-12 col-lg-4 col-xl-4 me-auto opacity-0 order-last order-lg-first">
       <img [src]="getInTouchSection['imgPath']" [alt]="getInTouchSection.section" class="img-fluid">
     </div>
     <div class="col-12 col-lg-8 col-xl-7 ms-auto">
       <h1 class="display-4 fw-bolder mb-4 opacity-0">{{ getInTouchSection.section }}</h1>
       <form [action]="getInTouchSection.formAction" [method]="getInTouchSection.formMethod" class="row opacity-0 needs-validation" novalidate>
         <div *ngFor="let item of getInTouchSection['formElements']" [class]="'col-12 form-floating mb-3 ' + item.cols">
-          <input *ngIf="item['fieldType'] === 'I'" [type]="item.inputType" class="form-control border-3 border-secondary"
+          <input *ngIf="item['fieldType'] === 'I'" [type]="item.inputType" class="form-control border-3"
                  [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" required>
-          <textarea *ngIf="item['fieldType'] === 'T'" class="form-control border-3 border-secondary" [placeholder]="item.placeholder"
+          <textarea *ngIf="item['fieldType'] === 'T'" class="form-control border-3" [placeholder]="item.placeholder"
                     [name]="item.id" [id]="item.id" required></textarea>
           <button *ngIf="item['fieldType'] === 'B'" class="btn btn-dark btn-lg rounded-1" [name]="item.id" [type]="item.inputType">
             <i class="fa-solid fa-paper-plane"></i>
           </button>
-          <label *ngIf="item.label" class="floating-form-label px-3 mx-2" [for]="item.id">{{ item.label }}</label>
+          <label *ngIf="item.label" class="floating-form-label px-3 mx-2 text-black-50" [for]="item.id">{{ item.label }}</label>
         </div>
       </form>
     </div>

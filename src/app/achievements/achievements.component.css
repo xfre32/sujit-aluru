@@ -19,8 +19,8 @@ h5 {
   letter-spacing: 0.4rem;
 }
 
-h3.display-4 {
-  transition: opacity 1s ease-in-out;
+.heading-animation {
+  animation: fade-in-blur-out 1s ease-in-out;
 }
 
 embed {
@@ -43,4 +43,15 @@ img {
 
 .card-hovered {
   transform: translateY(-15px);
+}
+
+@keyframes fade-in-blur-out {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0);
+  }
 }
