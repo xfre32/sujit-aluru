@@ -7,26 +7,24 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
 })
 export class ResumeComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
-
   ngOnInit(): void {
     window.scroll(0, 0);
   }
 
   ngAfterViewInit(): void {
-    let cardInView: Element | null = document.querySelector('#resume-preview');
+    const cardInView: Element | null = document.querySelector('#resume-preview');
     if(cardInView)
       this.observer.observe(cardInView);
   }
 
-  imgPath: string = 'resume_img.png';
-  heroText: string = "Here's my Résumé";
-  heroDesc: string = 'Curriculum Vitae, as they call it';
-  resumeSrc: string = '../../assets/resume/resume.png';
-  resumePdfSrc: string = '../../assets/resume/resume.pdf';
+  imgPath = 'resume_img.png';
+  heroText = "Here's my Résumé";
+  heroDesc = 'Curriculum Vitae, as they call it';
+  resumeSrc = '../../assets/resume/resume.png';
+  resumePdfSrc = '../../assets/resume/resume.pdf';
 
   observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]): void => {
-    let cardInView: Element = entries[0].target;
+    const cardInView: Element = entries[0].target;
     if(entries[0].isIntersecting) {
       cardInView.classList.add('shadow-lg');
       cardInView.classList.replace('p-4', 'p-3');

@@ -7,11 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  imgPath: string = 'projects_img.png';
-  heroText: string = 'My Projects';
-  heroDesc: string = 'some cool, some dumb, but I loved working every single one';
-
-  constructor() { }
+  imgPath = 'projects_img.png';
+  heroText = 'My Projects';
+  heroDesc = 'some cool, some dumb, but I loved working every single one';
 
   ngOnInit(): void {
     window.scroll(0, 0)

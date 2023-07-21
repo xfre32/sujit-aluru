@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import {IPageNavDetail} from "./models/custom-models.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -6,11 +7,11 @@ import { Injectable } from '@angular/core';
 export class SharedService {
 
   thisYear: number = new Date().getFullYear();
-  currPath: string = '';
-  previousPath: string = '';
-  scrolled: boolean = false;
+  currPath = '';
+  previousPath = '';
+  scrolled = false;
 
-  pageNavs: any[] = [
+  pageNavs: IPageNavDetail[] = [
     {
       path: '',
       name: 'Home',
@@ -37,7 +38,5 @@ export class SharedService {
       icon: 'fa-file'
     }
   ]
-
-  constructor() {}
 
 }

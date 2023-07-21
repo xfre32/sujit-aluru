@@ -13,15 +13,15 @@ export class HeroComponent implements OnInit, AfterViewInit {
   @Input() heroDesc!: string;
   @Input() heroImageLeft!: boolean;
 
-  prevId: number = 0;
-  currId: number = 0;
-  transitionAnimation: string = '';
+  prevId = 0;
+  currId = 0;
+  transitionAnimation = '';
 
   observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]) => {
-    let elementInView: Element = entries[0].target
+    const elementInView: Element = entries[0].target
     if(entries[0].isIntersecting) {
-      let heroSectionImage: Element = entries[0].target.children[0].children[0];
-      let heroSectionText: Element = entries[0].target.children[1];
+      const heroSectionImage: Element = entries[0].target.children[0].children[0];
+      const heroSectionText: Element = entries[0].target.children[1];
       heroSectionImage.classList.remove('opacity-0');
       heroSectionImage.classList.add(this.transitionAnimation);
       setTimeout(() => {
@@ -42,7 +42,7 @@ export class HeroComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    let heroSectionContainer: Element | null = document.querySelector('.hero-section-container');
+    const heroSectionContainer: Element | null = document.querySelector('.hero-section-container');
     if(heroSectionContainer)
       this.observer.observe(heroSectionContainer);
   }

@@ -1,5 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { Toast } from 'bootstrap';
+import {IAboutMe, IGetInTouch, IPhilosophy, IStrength} from "./home-type.interface";
 
 @Component({
   selector: 'app-home',
@@ -8,30 +9,29 @@ import { Toast } from 'bootstrap';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  imgPath: string = 'home_img.png';
-  heroText: string = "Hello, I'm Sujit Aluru";
-  heroDesc: string = "Turning pixels into smiles, one line of code at a time";
+  imgPath = 'home_img.png';
+  heroText = "Hello, I'm Sujit Aluru";
+  heroDesc = "Turning pixels into smiles, one line of code at a time";
 
-  tempRandomText: string = "some random description about the company and experiences I had there."
-
-  constructor() { }
+  tempRandomText = "some random description about the company and experiences I had there."
 
   ngOnInit(): void {
     window.scroll(0, 0)
   }
 
   ngAfterViewInit(): void {
-    let sections: NodeListOf<HTMLElement> = document.querySelectorAll('section');
+    const sections: NodeListOf<HTMLElement> = document.querySelectorAll('section');
     sections.forEach((section: Element): void => {
       this.observer.observe(section);
     });
-    let getInTouchForm: HTMLFormElement = document.querySelector('.needs-validation')!;
-    let mailSentToast: HTMLElement = document.querySelector('#mail-sent-toast')!;
-    this.formEventListener(getInTouchForm, mailSentToast);
+    const getInTouchForm = document.querySelector('.needs-validation') as HTMLFormElement;
+    const mailSentToast = document.querySelector('#mail-sent-toast') as HTMLElement;
+    if(getInTouchForm && mailSentToast)
+      this.formEventListener(getInTouchForm, mailSentToast);
   }
 
-  formEventListener(formSubject: HTMLFormElement, toast: any): void {
-    formSubject?.addEventListener('submit', (event: any): void => {
+  formEventListener(formSubject: HTMLFormElement, toast: HTMLElement): void {
+    formSubject?.addEventListener('submit', (event: Event): void => {
       if (!formSubject.checkValidity()) {
         event.preventDefault()
         event.stopPropagation()
@@ -46,7 +46,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]): void => {
-    let sectionInView: Element = entries[0].target;
+    const sectionInView: Element = entries[0].target;
     if(entries[0].isIntersecting) {
       if(sectionInView.className.includes('about-me')) {
         Array.from(sectionInView.children).forEach((listItem: Element, index: number): void => {
@@ -68,10 +68,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
 
       else if(sectionInView.className.includes('phil-values')) {
-        let heading: Element = sectionInView.children[0].children[0];
-        let horRule: Element = sectionInView.children[0].children[1];
-        let paragraph: Element = sectionInView.children[0].children[2];
-        let image: Element = sectionInView.children[1];
+        const heading: Element = sectionInView.children[0].children[0];
+        const horRule: Element = sectionInView.children[0].children[1];
+        const paragraph: Element = sectionInView.children[0].children[2];
+        const image: Element = sectionInView.children[1];
         sectionInView.classList.remove('opacity-0');
         sectionInView.classList.add('section-background-animation');
         setTimeout(() => {
@@ -91,9 +91,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
 
       else if(sectionInView.className.includes('getInTouch')) {
-        let sectionImage: Element = sectionInView.children[0];
-        let sectionHeading: Element = sectionInView.children[1].children[0];
-        let sectionForm: Element = sectionInView.children[1].children[1];
+        const sectionImage: Element = sectionInView.children[0];
+        const sectionHeading: Element = sectionInView.children[1].children[0];
+        const sectionForm: Element = sectionInView.children[1].children[1];
         sectionHeading.classList.remove('opacity-0');
         sectionHeading.classList.add('section-headings-animation');
         setTimeout(() => {
@@ -107,11 +107,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
 
       else if(sectionInView.className.includes('strengths')) {
-        let sectionHeading: Element = sectionInView.children[0].children[0];
-        let sectionCaption: Element = sectionInView.children[0].children[1];
-        let sectionLink: Element = sectionInView.children[0].children[2];
-        let sectionStrengths: Element = sectionInView.children[1];
-        let horRule: Element = sectionInView.children[2];
+        const sectionHeading: Element = sectionInView.children[0].children[0];
+        const sectionCaption: Element = sectionInView.children[0].children[1];
+        const sectionLink: Element = sectionInView.children[0].children[2];
+        const sectionStrengths: Element = sectionInView.children[1];
+        const horRule: Element = sectionInView.children[2];
         sectionHeading.classList.remove('opacity-0');
         sectionHeading.classList.add('section-headings-animation');
         horRule.classList.replace('w-25', 'w-100');
@@ -132,7 +132,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   }, { threshold: [0.5, 0.6, 0.7, 0.8, 1] })
 
-  aboutMe: any[] = [
+  aboutMe: IAboutMe[] = [
     {
       section: 'Work Experience',
       caption: 'Companies I\'ve worked for in the past',
@@ -183,7 +183,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     }
   ]
 
-  philosophicalValuesSection: any = {
+  philosophicalValuesSection: IPhilosophy = {
     section: 'Philosophy & Values',
     philosophicalValue: '\n' +
       '          Embracing authenticity, I humbly tread life\'s path with a genuine stride.\n' +
@@ -194,7 +194,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     imageSrc: '../../assets/home/philosophical-value_img.png'
   }
 
-  strengthsSection: any = {
+  strengthsSection: IStrength = {
     section: 'Strengths',
     caption: 'With a natural intuition for UI development, I excel in crafting visually appealing, user-friendly interfaces &\n' +
       '       writing efficient & non-redundant code, ensuring responsive designs across devices.\n' +
@@ -223,7 +223,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     ]
   }
 
-  getInTouchSection: any = {
+  getInTouchSection: IGetInTouch = {
     section: 'Get in Touch',
     imgPath: '../../assets/home/get-in-touch_img.png',
     formAction: 'https://formspree.io/f/mpzgzjge',

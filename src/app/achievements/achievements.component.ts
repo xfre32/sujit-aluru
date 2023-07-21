@@ -1,6 +1,7 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { SharedService } from '../shared/shared.service';
-import { Carousel } from "bootstrap";
+import {Carousel, Modal} from "bootstrap";
+import {ICertification, ICertificationDetail} from "./achievements-type.interface";
 
 @Component({
   selector: 'app-achievements',
@@ -16,25 +17,25 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    let carousels: NodeListOf<HTMLElement> = document.querySelectorAll('.carousel');
+    const carousels: NodeListOf<HTMLElement> = document.querySelectorAll('.carousel');
     carousels.forEach((carousel: HTMLElement): void => {
       this.startCarouselCycle(carousel)
     })
     this.modalEventListener();
-    let allCards: NodeListOf<HTMLElement> = document.querySelectorAll('.card');
+    const allCards: NodeListOf<HTMLElement> = document.querySelectorAll('.card');
     allCards.forEach((card: HTMLElement): void => {
       this.observer.observe(card);
     })
   }
 
-  startCarouselCycle(carousel: any): void {
+  startCarouselCycle(carousel: HTMLElement): void {
     const carouselBootstrap: Carousel = Carousel.getOrCreateInstance(carousel);
     carouselBootstrap.cycle();
   }
 
-  onMouseHover(event: any): void {
+  onMouseHover(event: MouseEvent): void {
     this.mouseHovered = event.type === 'mouseenter';
-    let hoveredCard: Element = event.target;
+    const hoveredCard: HTMLDivElement = event.target as HTMLDivElement;
     if(this.mouseHovered) {
       hoveredCard.classList.add('card-hovered')
       hoveredCard.classList.replace('shadow-sm', 'shadow-lg');
@@ -48,11 +49,10 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   modalEventListener() {
     const pdfModal: HTMLElement | null = document.getElementById('pdfModal');
     if (pdfModal) {
-      pdfModal.addEventListener('show.bs.modal', (event: any) => {
-        const image = event.relatedTarget
-        let id = image.getAttribute('id');
-        let title = image.getAttribute('alt');
-
+      pdfModal.addEventListener('show.bs.modal', (event: Event) => {
+        const image = (event as Modal.Event).relatedTarget
+        const id = image ? image.getAttribute('id') : null;
+        const title = image ? image.getAttribute('alt') : null;
         const courseTitle: Element | null = pdfModal.querySelector('.course-title');
         if(courseTitle) {
           courseTitle.textContent = title;
@@ -64,8 +64,8 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
 
         const modalTitle = pdfModal.querySelector('.modal-title');
         let courseOrg = '';
-        for (let index: number = 0; index < this.certsProps.length; index++) {
-          let cert = this.certsProps[index].certs.find((cert: any) => cert.name === title);
+        for (let index = 0; index < this.certsProps.length; index++) {
+          const cert = this.certsProps[index].certs.find((cert: ICertificationDetail) => cert.name === title);
           if(cert) {
             courseOrg = this.certsProps[index].org;
             break;
@@ -79,16 +79,16 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   }
 
   currYear: number = this.sharedService.thisYear;
-  imgPath: string = 'achievements_img.png';
-  heroText: string = 'My Certifications';
-  heroDesc: string = 'endorsed by established Institutions & Organizations';
-  pdfSrc: string = '../../assets/certs/pdfs';
+  imgPath = 'achievements_img.png';
+  heroText = 'My Certifications';
+  heroDesc = 'endorsed by established Institutions & Organizations';
+  pdfSrc = '../../assets/certs/pdfs';
 
-  mouseHovered: boolean = false;
+  mouseHovered = false;
 
   observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]): void  => {
-    let cardInView: Element = entries[0].target;
-    let orgOfTheCard: any = cardInView.parentElement?.nextSibling?.childNodes[0];
+    const cardInView: Element = entries[0].target;
+    const orgOfTheCard: HTMLElement = cardInView.parentElement?.nextSibling?.childNodes[0] as HTMLElement;
     if(entries[0].isIntersecting) {
       cardInView.classList.replace('p-0', 'p-2');
       orgOfTheCard.classList.remove('opacity-0');
@@ -97,7 +97,7 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
     }
   }, { threshold: [0.5, 0.6, 0.8, 1] });
 
-  certsProps: any = [
+  certsProps: ICertification[] = [
     {
       org: 'Google Developer Experts',
       certs: [

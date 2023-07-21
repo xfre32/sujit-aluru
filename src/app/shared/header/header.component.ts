@@ -1,22 +1,21 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import { SharedService } from '../shared.service';
 import { Router, Event, NavigationEnd } from '@angular/router';
+import { IPageNavDetail } from "../models/custom-models.interface";
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  profilePicPath: string = '../../../assets/profile_img.png'
+  profilePicPath = '../../../assets/profile_img.png'
 
   constructor(protected sharedService: SharedService,
     private router: Router) { }
 
-  ngOnInit(): void {}
-
-  headerNav: any[] = this.sharedService.pageNavs;
+  headerNav: IPageNavDetail[] = this.sharedService.pageNavs;
 
   getCurrPath() {
     this.router.events.subscribe((event: Event) => {

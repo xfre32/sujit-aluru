@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { ISkillSet } from "./skills-type.interface";
 
 @Component({
   selector: 'app-skills',
@@ -7,26 +8,23 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 })
 export class SkillsComponent implements OnInit, AfterViewInit {
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     window.scroll(0, 0);
   }
 
   ngAfterViewInit(): void {
-    let allCards: NodeListOf<Element> = document.querySelectorAll('.card');
+    const allCards: NodeListOf<Element> = document.querySelectorAll('.card');
     allCards.forEach((card: Element) => {
       this.observer.observe(card)
     });
   }
 
-  onHover(event: any): void {
+  onHover(event: MouseEvent): void {
     this.mouseHovered = event.type === 'mouseenter';
-    let hoveredCard = event.target;
-    let hoveredCardId = hoveredCard.id;
-    let hoveredCardIndex = hoveredCardId.charAt(hoveredCardId.length - 1);
-    let cardChildren = hoveredCard.querySelectorAll('.card-child' +  hoveredCardIndex);
+    const hoveredCard: HTMLDivElement = event.target as HTMLDivElement;
+    const hoveredCardId = hoveredCard.id;
+    const hoveredCardIndex = hoveredCardId.charAt(hoveredCardId.length - 1);
+    const cardChildren = hoveredCard.querySelectorAll('.card-child' +  hoveredCardIndex);
     if(this.mouseHovered) {
       hoveredCard.classList.add('card-hovered');
       hoveredCard.classList.replace('shadow-sm', 'shadow-lg');
@@ -57,13 +55,13 @@ export class SkillsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  imgPath: string = 'skills_img.png';
-  heroText: string = 'My Skills & Proficiency';
-  heroDesc: string = 'in Web Design & Development';
+  imgPath = 'skills_img.png';
+  heroText = 'My Skills & Proficiency';
+  heroDesc = 'in Web Design & Development';
 
-  mouseHovered: boolean = false;
+  mouseHovered = false;
 
-  skillSet: any = [
+  skillSet: ISkillSet[] = [
     {
       domain: 'Programming Languages',
       image: 'programming_img.png',
@@ -202,13 +200,13 @@ export class SkillsComponent implements OnInit, AfterViewInit {
 
   observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]): void => {
     if(entries[0].isIntersecting){
-      let cardInView: Element = entries[0].target
-      let cardId: string = cardInView.id;
-      let cardIndex: string = cardId.charAt(cardId.length - 1);
-      let cardChildren: NodeListOf<Element> = cardInView.querySelectorAll('.card-child' + cardIndex);
+      const cardInView: Element = entries[0].target
+      const cardId: string = cardInView.id;
+      const cardIndex: string = cardId.charAt(cardId.length - 1);
+      const cardChildren: NodeListOf<Element> = cardInView.querySelectorAll('.card-child' + cardIndex);
       cardChildren.forEach((child: Element, index: number) => {
         if(child.tagName === 'DIV' && child.hasAttribute('id')) {
-          let percentage: string = child.id.split('.')[1];
+          const percentage: string = child.id.split('.')[1];
           setTimeout(() => {
             child.setAttribute('style', `width: ${percentage}%`);
           }, index * 10)

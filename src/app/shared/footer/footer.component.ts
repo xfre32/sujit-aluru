@@ -1,27 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { SharedService } from '../shared.service';
+import {IFooterList, IPageNavDetail} from "../models/custom-models.interface";
 
 @Component({
   selector: 'app-footer',
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent {
 
   constructor(protected sharedService: SharedService) { }
 
-  ngOnInit(): void {
-  }
-
   currentYear: number = this.sharedService.thisYear;
-  linkedInUrl: string = "https://www.linkedin.com/in/sujit-aluru/";
-  gitHubUrl: string = "https://www.github.com/xfre32/";
-  twitterUrl: string = "https://www.twitter.com/sn4ke8a8u/";
-  mailPointer: string = "mailto:sa2ooodec@gmail.com";
+  linkedInUrl = "https://www.linkedin.com/in/sujit-aluru/";
+  gitHubUrl = "https://www.github.com/xfre32/";
+  twitterUrl = "https://www.twitter.com/sn4ke8a8u/";
+  mailPointer = "mailto:sa2ooodec@gmail.com";
 
   footerWaves: string[] = ['wave1', 'wave2', 'wave3', 'wave4'];
 
-  footerIcons: any[] = [
+  footerIcons: IFooterList[] = [
     {
       name: 'mail',
       type: 'comm',
@@ -48,6 +46,6 @@ export class FooterComponent implements OnInit {
     }
   ]
 
-  footerNav: any[] = this.sharedService.pageNavs
+  footerNav: IPageNavDetail[] = this.sharedService.pageNavs
 
 }
