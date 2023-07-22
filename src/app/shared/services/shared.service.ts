@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {IPageNavDetail} from "./models/custom-models.interface";
+import {IPageNavDetail} from "../models/custom-models.interface";
 
 @Injectable({
   providedIn: 'root'

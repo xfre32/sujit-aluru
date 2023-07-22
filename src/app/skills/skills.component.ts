@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { ISkillSet } from "./skills-type.interface";
+import { ISkillSet } from "../shared/models/skills-type.interface";
 
 @Component({
   selector: 'app-skills',

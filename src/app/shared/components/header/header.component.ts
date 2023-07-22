@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
-import { SharedService } from '../shared.service';
+import { SharedService } from '../../services/shared.service';
 import { Router, Event, NavigationEnd } from '@angular/router';
-import { IPageNavDetail } from "../models/custom-models.interface";
+import { IPageNavDetail } from "../../models/custom-models.interface";
 
 @Component({
   selector: 'app-header',

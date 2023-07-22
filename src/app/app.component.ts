@@ -1,6 +1,6 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {NavigationEnd, Router, Event} from "@angular/router";
-import {SharedService} from "./shared/shared.service";
+import {SharedService} from "./shared/services/shared.service";
 
 @Component({
   selector: 'app-root',

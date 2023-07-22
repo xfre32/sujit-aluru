@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { SharedService } from '../shared.service';
-import {IFooterList, IPageNavDetail} from "../models/custom-models.interface";
+import { SharedService } from '../../services/shared.service';
+import {IFooterList, IPageNavDetail} from "../../models/custom-models.interface";
 
 @Component({
   selector: 'app-footer',

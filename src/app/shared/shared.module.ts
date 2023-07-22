@@ -2,9 +2,9 @@ import {CommonModule, NgOptimizedImage} from '@angular/common';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { HeroComponent } from './hero/hero.component';
+import { HeaderComponent } from './components/header/header.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HeroComponent } from './components/hero/hero.component';
 import { RouterModule } from '@angular/router';
 import { LeadingZeroPipe } from './pipes/leading-zero.pipe';
 

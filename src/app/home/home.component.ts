@@ -1,6 +1,6 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { Toast } from 'bootstrap';
-import {IAboutMe, IGetInTouch, IPhilosophy, IStrength} from "./home-type.interface";
+import {IAboutMe, IGetInTouch, IPhilosophy, IStrength} from "../shared/models/home-type.interface";
 
 @Component({
   selector: 'app-home',

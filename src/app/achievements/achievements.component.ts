@@ -1,7 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
-import { SharedService } from '../shared/shared.service';
+import { SharedService } from '../shared/services/shared.service';
 import {Carousel, Modal} from "bootstrap";
-import {ICertification, ICertificationDetail} from "./achievements-type.interface";
+import {ICertification, ICertificationDetail} from "../shared/models/achievements-type.interface";
 
 @Component({
   selector: 'app-achievements',
