@@ -53,12 +53,14 @@
     </div>
     <div class="col-12 col-lg-8 col-xl-7 ms-auto">
       <h1 class="display-4 fw-bolder mb-4 opacity-0">{{ getInTouchSection.section }}</h1>
-      <form [action]="getInTouchSection.formAction" [method]="getInTouchSection.formMethod" class="row opacity-0 needs-validation" novalidate>
+      <form class="row opacity-0 needs-validation" novalidate>
         <div *ngFor="let item of getInTouchSection['formElements']" [class]="'col-12 form-floating mb-3 ' + item.cols">
-          <input *ngIf="item['fieldType'] === 'I'" [type]="item.inputType" class="form-control border-3"
-                 [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" required>
+          <input *ngIf="item['fieldType'] === 'IT'" [type]="item.inputType" class="form-control border-3"
+                 [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.from_name" required>
+          <input *ngIf="item['fieldType'] === 'IE'" [type]="item.inputType" class="form-control border-3"
+                 [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.reply_to" required>
           <textarea *ngIf="item['fieldType'] === 'T'" class="form-control border-3" [placeholder]="item.placeholder"
-                    [name]="item.id" [id]="item.id" required></textarea>
+                    [name]="item.id" [id]="item.id" [(ngModel)]="templateParams.message" required></textarea>
           <button *ngIf="item['fieldType'] === 'B'" class="btn btn-dark btn-lg rounded-1" [name]="item.id" [type]="item.inputType">
             <i class="fa-solid fa-paper-plane"></i>
           </button>

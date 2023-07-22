@@ -29,7 +29,8 @@
             ],
             "scripts": [
               "node_modules/@popperjs/core/dist/umd/popper.js",
-              "node_modules/bootstrap/dist/js/bootstrap.js"
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/@emailjs/browser/dist/email.js"
             ]
           },
           "configurations": {

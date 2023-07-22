@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
 import { Toast } from 'bootstrap';
-import {IAboutMe, IGetInTouch, IPhilosophy, IStrength} from "../shared/models/home-type.interface";
+import { IAboutMe, IGetInTouch, IPhilosophy, IStrength } from "../shared/models/home-type.interface";
+import emailJs  from "@emailjs/browser";
 
 @Component({
   selector: 'app-home',
@@ -12,11 +13,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
   imgPath = 'home_img.png';
   heroText = "Hello, I'm Sujit Aluru";
   heroDesc = "Turning pixels into smiles, one line of code at a time";
+  emailJsPublicKey = "0EMmgRb5oefJS-Gi_";
+  serviceID = "service_contactMe";
+  templateID = "template_q7hqbp9";
+  templateParams = {
+    from_name: '',
+    message: '',
+    reply_to: ''
+  }
 
   tempRandomText = "some random description about the company and experiences I had there."
 
+  constructor() {
+  }
+
   ngOnInit(): void {
-    window.scroll(0, 0)
+    window.scroll(0, 0);
   }
 
   ngAfterViewInit(): void {
@@ -30,6 +42,22 @@ export class HomeComponent implements OnInit, AfterViewInit {
       this.formEventListener(getInTouchForm, mailSentToast);
   }
 
+  sendOutEmail(toastBootstrap: Toast, formSubject: HTMLFormElement) {
+    emailJs.init(this.emailJsPublicKey);
+    emailJs.send(this.serviceID, this.templateID, this.templateParams).then(() => {
+        toastBootstrap.show();
+        formSubject.classList.remove('was-validated')
+        this.templateParams = {
+          from_name: '',
+          message: '',
+          reply_to: ''
+        }
+    },
+    (error) => {
+      console.log('FAILED', error)
+    })
+  }
+
   formEventListener(formSubject: HTMLFormElement, toast: HTMLElement): void {
     formSubject?.addEventListener('submit', (event: Event): void => {
       if (!formSubject.checkValidity()) {
@@ -38,9 +66,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
       }
       else {
         const toastBootstrap: Toast = Toast.getOrCreateInstance(toast);
-        toastBootstrap.show();
+        this.sendOutEmail(toastBootstrap, formSubject);
       }
-
       formSubject.classList.add('was-validated')
     }, false)
   }
@@ -230,7 +257,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
     formMethod: 'POST',
     formElements: [
       {
-        fieldType: 'I',
+        fieldType: 'IT',
         inputType: 'text',
         cols: 'col-md-5',
         id: 'full-name',
@@ -238,7 +265,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
         label: 'Name'
       },
       {
-        fieldType: 'I',
+        fieldType: 'IE',
         inputType: 'email',
         cols: 'col-md-5',
         id: 'email',
