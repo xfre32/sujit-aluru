@@ -18,13 +18,13 @@ hr {
   background-color: #212529;
 }
 
-.strengths i {
+.strengths i.domain {
   vertical-align: baseline;
   transition: all 0.2s ease-in-out;
   color: #0d6efd;
 }
 
-.strengths i:hover {
+.strengths i.domain:hover {
   color: #212529;
 }
 
@@ -38,6 +38,14 @@ hr {
 
 form .floating-form-label {
   font-family: 'Geologica', sans-serif;
+}
+
+form input:focus {
+  border-color: #212529;
+}
+
+.focus-ring-dark {
+
 }
 
 textarea.form-control {

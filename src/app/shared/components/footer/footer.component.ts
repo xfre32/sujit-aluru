@@ -14,7 +14,7 @@ export class FooterComponent {
   currentYear: number = this.sharedService.thisYear;
   linkedInUrl = "https://www.linkedin.com/in/sujit-aluru/";
   gitHubUrl = "https://www.github.com/xfre32/";
-  twitterUrl = "https://www.twitter.com/sn4ke8a8u/";
+  twitterUrl = "https://www.twitter.com/snake8a8u/";
   mailPointer = "mailto:sa2ooodec@gmail.com";
 
   footerWaves: string[] = ['wave1', 'wave2', 'wave3', 'wave4'];

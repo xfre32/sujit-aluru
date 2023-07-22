@@ -30,13 +30,15 @@
       <h1 class="display-4 fw-bolder mb-4 opacity-0">{{strengthsSection.section}}</h1>
       <p class="lead fs-5 text-secondary pe-lg-5 mb-4 opacity-0">{{ strengthsSection.caption }}</p>
       <p class="lead opacity-0">
-        <a class="link-underline-dark link-offset-3 py-2 know-more" routerLink="/skills">Know More</a>
+        <a class="link-underline-dark link-offset-3 py-2 know-more" routerLink="/skills">
+          Know More
+          <i class="ms-2 fa-solid fa-arrow-right-long"></i></a>
       </p>
     </div>
     <div class="col-12 col-lg-7 ms-auto opacity-0">
       <div class="row justify-content-center">
         <div *ngFor="let strength of strengthsSection['strengths']" class="col-6 my-3">
-          <i [class]="'fa-solid fa-2xl fs-1 mb-4 ' + strength.icon"></i>
+          <i [class]="'fa-solid fa-2xl fs-1 mb-4 domain ' + strength.icon"></i>
           <h3 class="lead fs-4 fw-bold text-start mt-3">{{ strength.name }}</h3>
           <p class="lead fs-6 fw-lighter">
             {{ strength.description }}
@@ -55,7 +57,7 @@
       <h1 class="display-4 fw-bolder mb-4 opacity-0">{{ getInTouchSection.section }}</h1>
       <form class="row opacity-0 needs-validation" novalidate>
         <div *ngFor="let item of getInTouchSection['formElements']" [class]="'col-12 form-floating mb-3 ' + item.cols">
-          <input *ngIf="item['fieldType'] === 'IT'" [type]="item.inputType" class="form-control border-3"
+          <input *ngIf="item['fieldType'] === 'IT'" [type]="item.inputType" class="form-control border-3 focus-ring focus-ring-dark"
                  [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.from_name" required>
           <input *ngIf="item['fieldType'] === 'IE'" [type]="item.inputType" class="form-control border-3"
                  [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.reply_to" required>

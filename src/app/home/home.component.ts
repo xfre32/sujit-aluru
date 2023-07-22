@@ -22,8 +22,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
     reply_to: ''
   }
 
-  tempRandomText = "some random description about the company and experiences I had there."
-
   ngOnInit(): void {
     window.scroll(0, 0);
   }
@@ -165,43 +163,43 @@ export class HomeComponent implements OnInit, AfterViewInit {
           org: 'The Qrious Box',
           role: 'Junior Developer Intern',
           duration: 'Jul - Sep, 2021',
-          description: this.tempRandomText
+          description: 'Worked with a FE team in developing digital platforms for various manufacturing companies.'
         },
         {
           org: 'LTI - Larsen & Toubro Infotech',
           role: 'Graduate Engineer Trainee',
           duration: 'Aug - Oct, 2022',
-          description: this.tempRandomText
+          description: 'Trained on various Web technologies and worked on a ECommerce website.'
         },
         {
           org: 'LTIMindtree',
           role: 'Senior Software Engineer',
           duration: 'Nov 2022 - present',
-          description: this.tempRandomText
+          description: 'Working with a Team in developing various platforms that facilitates data capture and visualization.'
         }
       ]
     },
     {
       section: 'Educational Background',
-      caption: 'Schools & Institutions I\'ve been taught in',
+      caption: 'Schools & Institutions I\'ve been part of',
       items: [
         {
           org: 'D.A.V School',
           role: 'High School',
           duration: 'March 2014 - March 2016',
-          description: this.tempRandomText
+          description: 'The foundation for my Problem Solving and Coding capabilities.'
         },
         {
           org: 'S.D.A.V School',
           role: 'Senior High School',
           duration: 'March 2016 - March 2018',
-          description: this.tempRandomText
+          description: 'Deep understanding of OOP and Programming languages: C/C++.'
         },
         {
           org: 'SSN College of Engineering',
           role: 'B.E. EEE',
           duration: 'Aug 2018 - Jun 2022',
-          description: this.tempRandomText
+          description: 'Self learnt various Web-Technologies and began my journey as a Developer.'
         }
       ]
     }
