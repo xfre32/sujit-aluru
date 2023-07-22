@@ -24,9 +24,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   tempRandomText = "some random description about the company and experiences I had there."
 
-  constructor() {
-  }
-
   ngOnInit(): void {
     window.scroll(0, 0);
   }
