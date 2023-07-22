@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 #EsLint Config file
-eslintrc.json
+.eslintrc.json
