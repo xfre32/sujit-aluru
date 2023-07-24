@@ -82,7 +82,7 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   imgPath = 'achievements_img.png';
   heroText = 'My Certifications';
   heroDesc = 'endorsed by established Institutions & Organizations';
-  pdfSrc = '../../assets/certs/pdfs';
+  pdfSrc = 'assets/certs/pdfs';
 
   mouseHovered = false;
 

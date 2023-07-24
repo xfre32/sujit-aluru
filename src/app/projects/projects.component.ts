@@ -30,12 +30,12 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         {
           title: 'Concept Design',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/concept_art.png'
+          previewImg: 'concept_art.png'
         },
         {
           title: 'Typographic poster',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/poster.png'
+          previewImg: 'poster.png'
         }
       ]
     },
@@ -45,37 +45,37 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         {
           title: 'My Old Portfolio',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/portfolio_old.png'
+          previewImg: 'portfolio_old.png'
         },
         {
           title: 'Price Table',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/price_table.png'
+          previewImg: 'price_table.png'
         },
         {
           title: 'ICPEDC2021',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/college.png'
+          previewImg: 'college.png'
         },
         {
           title: 'Simon Game',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/simon_game.png'
+          previewImg: 'simon_game.png'
         },
         {
           title: 'Drum Kit',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/drum_kit.png'
+          previewImg: 'drum_kit.png'
         },
         {
           title: 'Dicee',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/dice.png'
+          previewImg: 'dice.png'
         },
         {
           title: 'TinDog',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/tindog.png'
+          previewImg: 'tindog.png'
         }
       ]
     },
@@ -85,32 +85,32 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
         {
           title: 'Stock Tracker',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/stock_tracker.png'
+          previewImg: 'stock_tracker.png'
         },
         {
           title: 'Expense Tracker',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/expense_tracker.png'
+          previewImg: 'expense_tracker.png'
         },
         {
           title: 'Keeper',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/keeper_app.png'
+          previewImg: 'keeper_app.png'
         },
         {
           title: 'To-do List',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/to_do_list.png'
+          previewImg: 'to_do_list.png'
         },
         {
           title: 'Emojipedia',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/emojipedia.png'
+          previewImg: 'emojipedia.png'
         },
         {
           title: 'Live Clock',
           description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: '../../assets/projects/time.png'
+          previewImg: 'time.png'
         }
       ]
     }

@@ -20,8 +20,8 @@ export class ResumeComponent implements OnInit, AfterViewInit {
   imgPath = 'resume_img.png';
   heroText = "Here's my Résumé";
   heroDesc = 'Curriculum Vitae, as they call it';
-  resumeSrc = '../../assets/resume/resume.png';
-  resumePdfSrc = '../../assets/resume/resume.pdf';
+  resumeSrc = 'assets/resume/resume.png';
+  resumePdfSrc = 'assets/resume/resume.pdf';
 
   observer: IntersectionObserver = new IntersectionObserver((entries: IntersectionObserverEntry[]): void => {
     const cardInView: Element = entries[0].target;

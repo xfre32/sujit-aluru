@@ -213,7 +213,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
       '          I choose to be real, cutting through the noise with a humble appeal.\n' +
       '          Authenticity, my guiding light, illuminating the way, where true connections ignite.\n' +
       '        ',
-    imageSrc: '../../assets/home/philosophical-value_img.png'
+    imageSrc: 'assets/home/philosophical-value_img.png'
   }
 
   strengthsSection: IStrength = {
@@ -247,7 +247,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   getInTouchSection: IGetInTouch = {
     section: 'Get in Touch',
-    imgPath: '../../assets/home/get-in-touch_img.png',
+    imgPath: 'assets/home/get-in-touch_img.png',
     formAction: 'https://formspree.io/f/mpzgzjge',
     formMethod: 'POST',
     formElements: [
