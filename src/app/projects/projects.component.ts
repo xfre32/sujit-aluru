@@ -1,4 +1,5 @@
 import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {IProjects} from "../shared/models/projects-type.interface";
 
 @Component({
   selector: 'app-projects',
@@ -22,7 +23,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
     });
   }
 
-  projects = [
+  projects: IProjects[] = [
     {
       domain: 'Design Projects',
       works: [
@@ -116,12 +117,12 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   ]
 
   observer: IntersectionObserver = new IntersectionObserver((entries:IntersectionObserverEntry[]) => {
-    let cardInView = entries[0].target
+    const cardInView = entries[0].target
     if(entries[0].isIntersecting) {
       cardInView.classList.remove('opacity-0');
       const cardId = cardInView.id;
       const cardIndex = cardId.split('.')[1];
-      let transitionAnimation = Number(cardIndex) % 2 === 0 ? 'card-fade-in-from-left' : 'card-fade-in-from-right';
+      const transitionAnimation = Number(cardIndex) % 2 === 0 ? 'card-fade-in-from-left' : 'card-fade-in-from-right';
       cardInView.classList.add(transitionAnimation);
 
       this.observer.unobserve(cardInView)
