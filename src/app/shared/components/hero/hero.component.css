@@ -23,7 +23,7 @@ p {
     filter: blur(10px);
     transform: translateX(-100px);
   }
-  100 % {
+  100% {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);
@@ -36,7 +36,7 @@ p {
     filter: blur(10px);
     transform: translateX(100px);
   }
-  100 % {
+  100% {
     opacity: 1;
     filter: blur(0);
     transform: translateX(0);

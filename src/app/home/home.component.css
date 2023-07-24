@@ -44,10 +44,6 @@ form input:focus {
   border-color: #212529;
 }
 
-.focus-ring-dark {
-
-}
-
 textarea.form-control {
   height: 150px;
 }
