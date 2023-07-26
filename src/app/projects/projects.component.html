@@ -1,7 +1,7 @@
 <app-hero [heroImage]="imgPath" [heroText]="heroText" [heroDesc]="heroDesc" [heroImageLeft]="false">
 </app-hero>
 
-<div class="container-fluid px-5 mx-2">
+<div class="container-fluid px-5 mx-2 py-4">
   <div *ngFor="let project of projects; let ri = index" class="row justify-content-between align-items-center my-5">
     <h2 class="display-5 fw-bold text-dark text-center py-2 mt-3 domain-header">{{ project.domain }}</h2>
     <div *ngFor="let work of project.works; let ci = index" class="col-12 col-lg-6 my-3">
