@@ -1,9 +1,19 @@
-h2, h3, p, button {
+h1, h2, h3, p, a {
   font-family: 'Geologica', sans-serif;
+}
+
+h1 {
+  text-transform: uppercase;
+  font-weight: 700;
 }
 
 h2 {
   text-transform: uppercase;
+}
+
+embed {
+  width: 100%;
+  height: 500px;
 }
 
 button i{

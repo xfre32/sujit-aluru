@@ -7,22 +7,18 @@
     <div *ngFor="let item of certsProps; let i = index" class="row justify-content-center align-items-xl-center">
         <div class="col-12 col-xl-7 py-4" [ngClass]="{'ms-lg-auto': i % 2 !== 0, 'me-lg-auto': i % 2 === 0}">
             <div (mouseenter)="onMouseHover($event)" (mouseleave)="onMouseHover($event)"
-                 class="card mb-5 p-0 shadow-sm bg-body-tertiary rounded border border-secondary-subtle text-center"
+                 class="card mb-lg-5 p-0 p-lg-0 shadow-sm bg-body-tertiary rounded border border-secondary-subtle text-center"
                  [id]="'card' + i">
-                <div class="card-header py-0 bg-light d-block d-xl-none me-0">
-                  <h5 class="card-title fs-2 mb-0 pb-0 text-info-emphasis">
-                    {{ item["org"] }}
-                  </h5>
-                </div>
                 <div  [id]="item['org'] + 'Carousel'" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div *ngFor="let cert of item['certs']; let i = index" class="carousel-item " [ngClass]="{'active': i === 0}" data-bs-interval="3000">
-                            <div class="card-body bg-light">
+                            <div class="card-body bg-light rounded-top p-0 p-lg-3">
                                 <img [id]="cert['sno']" data-bs-toggle="modal" data-bs-target="#pdfModal"
-                                [src]="'assets/certs/'+ cert.path" class="d-block w-100" [alt]="cert.name">
+                                [src]="'assets/certs/'+ cert.path" class="rounded-top d-block w-100" [alt]="cert.name">
                             </div>
-                            <div class="card-footer py-0 px-0 bg-light d-block d-xl-none text-secondary">
-                                <h6 class="fs-4">{{ cert.name }}</h6>
+                            <div class="card-footer px-1 py-2 bg-light d-block d-xl-none text-secondary">
+                                <h5 class="card-title px-2 fs-3 text-info-emphasis">{{ item["org"] }}</h5>
+                                <h6 class="fs-5 px-1">{{ cert.name }}</h6>
                             </div>
                         </div>
                     </div>

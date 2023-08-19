@@ -21,7 +21,9 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
     carousels.forEach((carousel: HTMLElement): void => {
       this.startCarouselCycle(carousel)
     })
-    this.modalEventListener();
+    const pdfModal = document.getElementById('pdfModal');
+    if(pdfModal)
+      this.modalEventListener(pdfModal);
     const allCards: NodeListOf<HTMLElement> = document.querySelectorAll('.card');
     allCards.forEach((card: HTMLElement): void => {
       this.observer.observe(card);
@@ -46,36 +48,33 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
     }
   }
 
-  modalEventListener() {
-    const pdfModal: HTMLElement | null = document.getElementById('pdfModal');
-    if (pdfModal) {
-      pdfModal.addEventListener('show.bs.modal', (event: Event) => {
-        const image = (event as Modal.Event).relatedTarget
-        const id = image ? image.getAttribute('id') : null;
-        const title = image ? image.getAttribute('alt') : null;
-        const courseTitle: Element | null = pdfModal.querySelector('.course-title');
-        if(courseTitle) {
-          courseTitle.textContent = title;
-        }
-        const pdfObject = pdfModal.querySelector('embed');
-        if(pdfObject) {
-          pdfObject.setAttribute('src', `${this.pdfSrc}/pdf${id}.pdf`);
-        }
+  modalEventListener(pdfModal: HTMLElement) {
+    pdfModal.addEventListener('show.bs.modal', (event: Event) => {
+      const image = (event as Modal.Event).relatedTarget;
+      const id = image ? image.getAttribute('id') : null;
+      const title = image ? image.getAttribute('alt') : null;
+      const courseTitle: Element | null = pdfModal.querySelector('.course-title');
+      if(courseTitle) {
+        courseTitle.textContent = title;
+      }
+      const pdfObject = pdfModal.querySelector('embed');
+      if(pdfObject) {
+        pdfObject.setAttribute('src', `${this.pdfSrc}/pdf${id}.pdf`);
+      }
 
-        const modalTitle = pdfModal.querySelector('.modal-title');
-        let courseOrg = '';
-        for (let index = 0; index < this.certsProps.length; index++) {
-          const cert = this.certsProps[index].certs.find((cert: ICertificationDetail) => cert.name === title);
-          if(cert) {
-            courseOrg = this.certsProps[index].org;
-            break;
-          }
+      const modalTitle = pdfModal.querySelector('.modal-title');
+      let courseOrg = '';
+      for (let index = 0; index < this.certsProps.length; index++) {
+        const cert = this.certsProps[index].certs.find((cert: ICertificationDetail) => cert.name === title);
+        if(cert) {
+          courseOrg = this.certsProps[index].org;
+          break;
         }
-        if(modalTitle) {
-          modalTitle.textContent = courseOrg;
-        }
-      })
-    }
+      }
+      if(modalTitle) {
+        modalTitle.textContent = courseOrg;
+      }
+    })
   }
 
   currYear: number = this.sharedService.thisYear;
@@ -90,7 +89,7 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
     const cardInView: Element = entries[0].target;
     const orgOfTheCard: HTMLElement = cardInView.parentElement?.nextSibling?.childNodes[0] as HTMLElement;
     if(entries[0].isIntersecting) {
-      cardInView.classList.replace('p-0', 'p-2');
+      cardInView.classList.replace('p-lg-0', 'p-lg-2');
       orgOfTheCard.classList.remove('opacity-0');
       orgOfTheCard.classList.add('heading-animation');
       this.observer.unobserve(cardInView)

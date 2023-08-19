@@ -40,7 +40,7 @@ form .floating-form-label {
   font-family: 'Geologica', sans-serif;
 }
 
-form input:focus {
+form input:focus, textarea:focus {
   border-color: #212529;
 }
 
@@ -53,15 +53,15 @@ textarea.form-control {
 }
 
 .section-list-animation {
-  animation: slide-in-from-left 1s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: slide-in-from-left 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-headings-animation {
-  animation: fade-in 1s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fade-in 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .section-background-animation {
-  animation: fade-in-move-up 1s cubic-bezier(0.4, 0, 0.2, 1);
+  animation: fade-in-move-up 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @keyframes slide-in-from-left {

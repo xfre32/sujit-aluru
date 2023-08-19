@@ -1,3 +1,7 @@
+.container-fluid {
+  width: 100vw;
+}
+
 a {
     font-family: 'Geologica', sans-serif;
     font-weight: 900;

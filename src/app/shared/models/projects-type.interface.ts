@@ -1,7 +1,9 @@
 export interface IProjectWorks {
   title: string,
   description: string,
-  previewImg: string
+  previewImg: string,
+  preview: string,
+  source: string
 }
 
 export interface IProjects {

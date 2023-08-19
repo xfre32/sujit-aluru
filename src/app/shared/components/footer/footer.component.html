@@ -8,7 +8,7 @@
           </div>
           <div class="col-12">
             <ul class="list-group list-group-horizontal flex-wrap mb-4 pb-2 justify-content-center">
-              <li *ngFor="let item of footerIcons" class="list-group-item bg-transparent border border-0">
+              <li *ngFor="let item of footerIcons" class="list-group-item px-2 px-md-3 bg-transparent border border-0">
                 <a title="social icon" class="social-icon__link display-5" [href]="item.path" target="_blank">
                   <i [ngClass]="{'fa-solid': item.type === 'comm', 'fa-brands': item.type === 'media'}" [class]="'fa-2xl' + item.icon"></i>
                 </a>

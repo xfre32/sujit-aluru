@@ -129,7 +129,7 @@ export class SkillsComponent implements OnInit, AfterViewInit {
         },
         {
           id: 'pb15',
-          skill: 'Version Control System (GIT)',
+          skill: 'Version Control System',
           percentage: 65
         },
         {
