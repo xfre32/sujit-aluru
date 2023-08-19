@@ -2,8 +2,11 @@
   width: 100vw;
 }
 
+h5, a {
+  font-family: 'Geologica', sans-serif;
+}
+
 a {
-    font-family: 'Geologica', sans-serif;
     font-weight: 900;
 }
 
@@ -13,6 +16,10 @@ li a {
 
 i {
     vertical-align: baseline;
+}
+
+i.fa-circle-xmark {
+  cursor: pointer;
 }
 
 nav {

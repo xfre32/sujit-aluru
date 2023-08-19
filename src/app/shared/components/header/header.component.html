@@ -4,7 +4,8 @@
       <nav class="navbar navbar-expand-xl bg-body-tertiary px-md-5 pb-0 vw-100 mb-2 p-2" [ngClass]="{'shadow': sharedService.scrolled}">
         <div class="container-fluid">
           <a class="navbar-brand fs-4 mb-1 px-3" href="#">
-            <img class="img-thumbnail p-0 border border-dark rounded-circle" width="50" height="50" [src]="profilePicPath"
+            <img class="img-thumbnail p-0 border border-dark-subtle rounded-circle" width="50" height="50"
+                 [ngSrc]="profilePicPath" priority="true"
                  alt="avatar"/>
             &nbsp; &nbsp; Sujit Aluru
           </a>
@@ -13,8 +14,8 @@
           </button>
           <div class="offcanvas offcanvas-end" id="navbarNav">
             <div class="offcanvas-header">
-              <h5 class="offcanvas-title" id="offcanvasNavbarLabel">Menu</h5>
-              <button type="button" class="btn-close" data-bs-dismiss="offcanvas">&nbsp;</button>
+              <h5 class="offcanvas-title display-5 fw-bold" id="offcanvasNavbarLabel">Menu</h5>
+              <i class="fa-solid fa-circle-xmark fa-2xl" data-bs-dismiss="offcanvas"></i>
             </div>
             <div class="offcanvas-body">
               <ul class="navbar-nav nav-underline justify-content-end flex-grow-1 pe-0">

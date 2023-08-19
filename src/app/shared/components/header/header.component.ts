@@ -10,7 +10,7 @@ import { IPageNavDetail } from "../../models/custom-models.interface";
 })
 export class HeaderComponent {
 
-  profilePicPath = 'assets/profile_img.png'
+  profilePicPath = 'assets/profile_img.jpg'
 
   constructor(protected sharedService: SharedService,
     private router: Router) { }
