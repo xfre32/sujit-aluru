@@ -48,6 +48,53 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       ]
     },
     {
+      domain: 'Framework Projects',
+      works: [
+        {
+          title: 'Stock Tracker',
+          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          previewImg: 'stock_tracker.png',
+          preview: 'https://xfre32.github.io/stock-tracker-app',
+          source: 'https://github.com/xfre32/stock-tracker-app'
+        },
+        {
+          title: 'Expense Tracker',
+          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          previewImg: 'expense_tracker.png',
+          preview: 'https://0s482.csb.app/',
+          source: 'https://github.com/xfre32/Expense-Tracker'
+        },
+        {
+          title: 'Keeper',
+          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          previewImg: 'keeper_app.png',
+          preview: 'https://nmpok.csb.app/',
+          source: 'https://codesandbox.io/s/keeper-app-nmpok'
+        },
+        {
+          title: 'To-do List',
+          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          previewImg: 'to_do_list.png',
+          preview: 'https://4pd0c.csb.app/',
+          source: 'https://codesandbox.io/s/to-do-list-4pd0c'
+        },
+        {
+          title: 'Emojipedia',
+          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          previewImg: 'emojipedia.png',
+          preview: 'https://d8e4m.csb.app/',
+          source: 'https://codesandbox.io/s/emojipedia-d8e4m'
+        },
+        {
+          title: 'Live Clock',
+          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          previewImg: 'time.png',
+          preview: 'https://kqof9.csb.app/',
+          source: 'https://codesandbox.io/s/live-clock-kqof9'
+        }
+      ]
+    },
+    {
       domain: 'Conventional Projects',
       works: [
         {
@@ -98,53 +145,6 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
           previewImg: 'tindog.png',
           preview: 'https://xfre32.github.io/Tindog-mockup',
           source: 'https://github.com/xfre32/Tindog-mockup'
-        }
-      ]
-    },
-    {
-      domain: 'Framework Projects',
-      works: [
-        {
-          title: 'Stock Tracker',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: 'stock_tracker.png',
-          preview: 'https://xfre32.github.io/stock-tracker-app',
-          source: 'https://github.com/xfre32/stock-tracker-app'
-        },
-        {
-          title: 'Expense Tracker',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: 'expense_tracker.png',
-          preview: 'https://0s482.csb.app/',
-          source: 'https://github.com/xfre32/Expense-Tracker'
-        },
-        {
-          title: 'Keeper',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: 'keeper_app.png',
-          preview: 'https://nmpok.csb.app/',
-          source: 'https://codesandbox.io/s/keeper-app-nmpok'
-        },
-        {
-          title: 'To-do List',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: 'to_do_list.png',
-          preview: 'https://4pd0c.csb.app/',
-          source: 'https://codesandbox.io/s/to-do-list-4pd0c'
-        },
-        {
-          title: 'Emojipedia',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: 'emojipedia.png',
-          preview: 'https://d8e4m.csb.app/',
-          source: 'https://codesandbox.io/s/emojipedia-d8e4m'
-        },
-        {
-          title: 'Live Clock',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
-          previewImg: 'time.png',
-          preview: 'https://kqof9.csb.app/',
-          source: 'https://codesandbox.io/s/live-clock-kqof9'
         }
       ]
     }

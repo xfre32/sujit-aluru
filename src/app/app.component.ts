@@ -1,14 +1,13 @@
-import {AfterViewInit, Component, HostListener, OnInit} from '@angular/core';
+import {Component, HostListener, OnInit} from '@angular/core';
 import {NavigationEnd, Router, Event} from "@angular/router";
 import {SharedService} from "./shared/services/shared.service";
-import {Modal} from "bootstrap";
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit, AfterViewInit{
+export class AppComponent implements OnInit {
 
   constructor(private router: Router, private sharedService: SharedService) {}
 
@@ -29,12 +28,6 @@ export class AppComponent implements OnInit, AfterViewInit{
         this.sharedService.currPath = event.url.split('/')[1];
       }
     });
-  }
-
-  ngAfterViewInit() {
-    const disclaimerModal = document.getElementById('disclaimerModal');
-    if(disclaimerModal)
-      Modal.getOrCreateInstance(disclaimerModal).show();
   }
 
 }

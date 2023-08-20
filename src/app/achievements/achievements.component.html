@@ -13,7 +13,7 @@
                     <div class="carousel-inner">
                         <div *ngFor="let cert of item['certs']; let i = index" class="carousel-item " [ngClass]="{'active': i === 0}" data-bs-interval="3000">
                             <div class="card-body bg-light rounded-top p-0 p-lg-3">
-                                <img [id]="cert['sno']" data-bs-toggle="modal" data-bs-target="#pdfModal"
+                                <img role="button" [id]="cert['sno']" data-bs-toggle="modal" data-bs-target="#pdfModal"
                                 [src]="'assets/certs/'+ cert.path" class="rounded-top d-block w-100" [alt]="cert.name">
                             </div>
                             <div class="card-footer px-1 py-2 bg-light d-block d-xl-none text-secondary">

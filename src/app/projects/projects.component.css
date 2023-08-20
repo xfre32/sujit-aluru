@@ -16,10 +16,6 @@ embed {
   height: 500px;
 }
 
-button i{
-  vertical-align: baseline;
-}
-
 .card-fade-in-from-left {
   animation: fade-in-left 0.8s ease-in-out;
 }

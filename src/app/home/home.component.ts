@@ -219,8 +219,8 @@ export class HomeComponent implements OnInit, AfterViewInit {
   strengthsSection: IStrength = {
     section: 'Strengths',
     caption: 'With a natural intuition for UI development, I excel in crafting visually appealing, user-friendly interfaces &\n' +
-      '       writing efficient & non-redundant code, ensuring responsive designs across devices.\n' +
-      '       With Problem-solving at the core of my abilities, allows me to tackle complex challenges & deliver efficient UIs that captivate users & provide a smooth, intuitive interface.',
+      '       writing efficient, non-redundant code & ensuring responsive designs across devices.\n' +
+      '       With Problem-solving at the core of my abilities, allows me to tackle complex challenges & deliver UIs that captivate users & provide a smooth, intuitive experience.',
     strengths: [
       {
         name: 'UI Development',
