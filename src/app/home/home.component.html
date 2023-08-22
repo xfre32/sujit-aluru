@@ -39,8 +39,8 @@
       <div class="row justify-content-center">
         <div *ngFor="let strength of strengthsSection['strengths']" class="col-6 my-3">
           <i [class]="'fa-solid fa-2xl fs-1 mb-4 domain ' + strength.icon"></i>
-          <h3 class="lead fs-4 fw-bold text-start mt-3">{{ strength.name }}</h3>
-          <p class="lead fs-6 fw-lighter">
+          <h3 class="lead fs-4 fw-bold mt-3">{{ strength.name }}</h3>
+          <p class="lead fs-6 fw-lighter d-none d-md-block">
             {{ strength.description }}
           </p>
         </div>
@@ -49,7 +49,7 @@
     <hr class="border border-light-subtle border-1 opacity-100 mx-auto w-25 opacity-0">
   </section>
 
-  <section class="row getInTouch justify-content-center mx-auto p-1 mt-lg-5 align-items-auto">
+  <section id="get-in-touch" class="row getInTouch justify-content-center mx-auto p-1 mt-lg-5 align-items-auto">
     <div class="col-12 col-lg-4 col-xl-4 me-auto opacity-0 order-last order-lg-first">
       <img [src]="getInTouchSection['imgPath']" [alt]="getInTouchSection.section" class="img-fluid">
     </div>
