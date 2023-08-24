@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 
 @Component({
   selector: 'app-resume',
@@ -6,15 +6,15 @@ import {AfterViewInit, Component, OnInit} from '@angular/core';
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit, AfterViewInit {
+  @ViewChild('#resumePreview') cardInView!: ElementRef;
 
   ngOnInit(): void {
     window.scroll(0, 0);
   }
 
   ngAfterViewInit(): void {
-    const cardInView: Element | null = document.querySelector('#resume-preview');
-    if(cardInView)
-      this.observer.observe(cardInView);
+    if(this.cardInView.nativeElement)
+      this.observer.observe(this.cardInView.nativeElement);
   }
 
   imgPath = 'resume_img.png';

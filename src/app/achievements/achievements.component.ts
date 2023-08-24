@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import { SharedService } from '../shared/services/shared.service';
 import {Carousel, Modal} from "bootstrap";
 import {ICertification, ICertificationDetail} from "../shared/models/achievements-type.interface";
@@ -9,6 +9,12 @@ import {ICertification, ICertificationDetail} from "../shared/models/achievement
   styleUrls: ['./achievements.component.css']
 })
 export class AchievementsComponent implements OnInit, AfterViewInit {
+  @ViewChild('pdfModal') pdfModal!: ElementRef<HTMLElement>;
+  @ViewChildren('carousel') carousels!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChildren('card') allCards!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChild('courseTitle') courseTitle!: ElementRef<HTMLElement>;
+  @ViewChild('modalTitle') modalTitle!: ElementRef<HTMLElement>
+  @ViewChild('embed') pdfObject!: ElementRef<HTMLElement>
 
   constructor(private sharedService: SharedService) {}
 
@@ -17,16 +23,15 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    const carousels: NodeListOf<HTMLElement> = document.querySelectorAll('.carousel');
-    carousels.forEach((carousel: HTMLElement): void => {
-      this.startCarouselCycle(carousel)
+    if(this.pdfModal.nativeElement)
+      this.modalEventListener(this.pdfModal.nativeElement);
+
+    this.carousels.forEach((carousel: ElementRef): void => {
+      this.startCarouselCycle(carousel.nativeElement)
     })
-    const pdfModal = document.getElementById('pdfModal');
-    if(pdfModal)
-      this.modalEventListener(pdfModal);
-    const allCards: NodeListOf<HTMLElement> = document.querySelectorAll('.card');
-    allCards.forEach((card: HTMLElement): void => {
-      this.observer.observe(card);
+
+    this.allCards.forEach((card: ElementRef): void => {
+      this.observer.observe(card.nativeElement);
     })
   }
 
@@ -53,16 +58,10 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
       const image = (event as Modal.Event).relatedTarget;
       const id = image ? image.getAttribute('id') : null;
       const title = image ? image.getAttribute('alt') : null;
-      const courseTitle: Element | null = pdfModal.querySelector('.course-title');
-      if(courseTitle) {
-        courseTitle.textContent = title;
-      }
-      const pdfObject = pdfModal.querySelector('embed');
-      if(pdfObject) {
-        pdfObject.setAttribute('src', `${this.pdfSrc}/pdf${id}.pdf`);
-      }
+      this.courseTitle.nativeElement.textContent = title;
 
-      const modalTitle = pdfModal.querySelector('.modal-title');
+      this.pdfObject.nativeElement.setAttribute('src', `${this.pdfSrc}/pdf${id}.pdf`);
+
       let courseOrg = '';
       for (let index = 0; index < this.certsProps.length; index++) {
         const cert = this.certsProps[index].certs.find((cert: ICertificationDetail) => cert.name === title);
@@ -71,9 +70,8 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
           break;
         }
       }
-      if(modalTitle) {
-        modalTitle.textContent = courseOrg;
-      }
+
+      this.modalTitle.nativeElement.textContent = courseOrg;
     })
   }
 

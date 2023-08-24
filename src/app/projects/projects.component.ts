@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {IProjects} from "../shared/models/projects-type.interface";
 import {Modal} from "bootstrap";
 
@@ -8,6 +8,10 @@ import {Modal} from "bootstrap";
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
+  @ViewChild('embed') targetElement!: ElementRef<HTMLElement>;
+  @ViewChild('modalTitle') projectHeading!: ElementRef<HTMLElement>;
+  @ViewChild('projectModal') projectModal!: ElementRef<HTMLElement>;
+  @ViewChildren('card') projectCards!: QueryList<ElementRef<HTMLElement>>;
 
   imgPath = 'projects_img.png';
   heroText = 'My Projects';
@@ -18,13 +22,11 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
-    const projectModal = document.getElementById('projectModal')
-    const projectCards = document.querySelectorAll('.card');
-    projectCards.forEach((card: Element) => {
-      this.observer.observe(card);
+    this.projectCards.forEach((card: ElementRef) => {
+      this.observer.observe(card.nativeElement);
     });
-    if(projectModal)
-      this.modalEventListener(projectModal);
+
+    this.modalEventListener(this.projectModal.nativeElement);
   }
 
   projects: IProjects[] = [
@@ -168,15 +170,11 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       const anchor = (event as Modal.Event).relatedTarget;
       const target = anchor ? anchor.getAttribute('href') : null;
       const targetHeadingContent = anchor ? anchor.getAttribute('title') : null;
-      console.log(targetHeadingContent)
-      const projectHeading = projectModal.querySelector('.modal-title');
-      const targetElement = projectModal.querySelector('embed');
 
-      if(targetElement && target)
-        targetElement.setAttribute('src', target);
+      if(target)
+        this.targetElement.nativeElement.setAttribute('src', target);
 
-      if(projectHeading)
-        projectHeading.textContent = targetHeadingContent
+      this.projectHeading.nativeElement.textContent = targetHeadingContent;
     })
   }
 

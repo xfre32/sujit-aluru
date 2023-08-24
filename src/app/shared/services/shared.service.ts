@@ -13,7 +13,7 @@ export class SharedService {
 
   pageNavs: IPageNavDetail[] = [
     {
-      path: '',
+      path: 'home',
       name: 'Home',
       icon: 'fa-house'
     },

@@ -25,7 +25,8 @@ export class AppComponent implements OnInit {
     this.router.events.subscribe((event: Event): void => {
       if(event instanceof NavigationEnd) {
         this.sharedService.previousPath = this.sharedService.currPath;
-        this.sharedService.currPath = event.url.split('/')[1];
+        const path = event.url.split('/')[1]
+        this.sharedService.currPath = path === "" ? "home" : path;
       }
     });
   }

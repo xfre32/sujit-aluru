@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import { Toast } from 'bootstrap';
 import { IAboutMe, IGetInTouch, IPhilosophy, IStrength } from "../shared/models/home-type.interface";
 import emailJs  from "@emailjs/browser";
@@ -9,6 +9,9 @@ import emailJs  from "@emailjs/browser";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChildren('section1, section2, section3, section4') sections!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChild('needsValidation') getInTouchForm!: ElementRef<HTMLFormElement>;
+  @ViewChild('mailSentToast') mailSentToast!: ElementRef<HTMLFormElement>;
 
   imgPath = 'home_img.png';
   heroText = "Hello, I'm Sujit Aluru";
@@ -21,25 +24,28 @@ export class HomeComponent implements OnInit, AfterViewInit {
     message: '',
     reply_to: ''
   }
+  mailSentLoader = false;
+  toastMessage = "";
+  emailStatus = false;
 
   ngOnInit(): void {
     window.scroll(0, 0);
   }
 
   ngAfterViewInit(): void {
-    const sections: NodeListOf<HTMLElement> = document.querySelectorAll('section');
-    sections.forEach((section: Element): void => {
-      this.observer.observe(section);
+    this.sections.forEach((section: ElementRef): void => {
+      this.observer.observe(section.nativeElement);
     });
-    const getInTouchForm = document.querySelector('.needs-validation') as HTMLFormElement;
-    const mailSentToast = document.querySelector('#mail-sent-toast') as HTMLElement;
-    if(getInTouchForm && mailSentToast)
-      this.formEventListener(getInTouchForm, mailSentToast);
+
+    this.formEventListener(this.getInTouchForm.nativeElement, this.mailSentToast.nativeElement);
   }
 
   sendOutEmail(toastBootstrap: Toast, formSubject: HTMLFormElement) {
     emailJs.init(this.emailJsPublicKey);
     emailJs.send(this.serviceID, this.templateID, this.templateParams).then(() => {
+      this.mailSentLoader = false;
+      this.emailStatus = true;
+      this.toastMessage = "Message Sent successfully";
         toastBootstrap.show();
         formSubject.classList.remove('was-validated')
         this.templateParams = {
@@ -50,16 +56,20 @@ export class HomeComponent implements OnInit, AfterViewInit {
     },
     (error) => {
       console.log('FAILED', error)
+      this.emailStatus = false;
+      this.mailSentLoader = false;
+      this.toastMessage = "Message Failed";
     })
   }
 
   formEventListener(formSubject: HTMLFormElement, toast: HTMLElement): void {
-    formSubject?.addEventListener('submit', (event: Event): void => {
+    formSubject.addEventListener('submit', (event: Event): void => {
       if (!formSubject.checkValidity()) {
-        event.preventDefault()
-        event.stopPropagation()
+        event.preventDefault();
+        event.stopPropagation();
       }
       else {
+        this.mailSentLoader = true;
         const toastBootstrap: Toast = Toast.getOrCreateInstance(toast);
         this.sendOutEmail(toastBootstrap, formSubject);
       }

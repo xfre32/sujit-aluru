@@ -6,10 +6,10 @@
 <div class="container mt-5 pt-4 pb-0">
     <div *ngFor="let item of certsProps; let i = index" class="row justify-content-center align-items-xl-center">
         <div class="col-12 col-xl-7 py-4" [ngClass]="{'ms-lg-auto': i % 2 !== 0, 'me-lg-auto': i % 2 === 0}">
-            <div (mouseenter)="onMouseHover($event)" (mouseleave)="onMouseHover($event)"
+            <div #card (mouseenter)="onMouseHover($event)" (mouseleave)="onMouseHover($event)"
                  class="card mb-lg-5 p-0 p-lg-0 shadow-sm bg-body-tertiary rounded border border-secondary-subtle text-center"
                  [id]="'card' + i">
-                <div  [id]="item['org'] + 'Carousel'" class="carousel slide" data-bs-ride="carousel">
+                <div #carousel [id]="item['org'] + 'Carousel'" class="carousel slide" data-bs-ride="carousel">
                     <div class="carousel-inner">
                         <div *ngFor="let cert of item['certs']; let i = index" class="carousel-item " [ngClass]="{'active': i === 0}" data-bs-interval="3000">
                             <div class="card-body bg-light rounded-top p-0 p-lg-3">
@@ -35,20 +35,20 @@
 
 <!--Modal code-->
 
-<div class="modal fade" id="pdfModal" tabindex="-1">
+<div class="modal fade" #pdfModal id="pdfModal" tabindex="-1">
   <div class="modal-dialog modal-xl modal-fullscreen-xl-down modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-2 mx-auto text-info-emphasis" id="pdfModalLabel"> Certifying Organization </h1>
+        <h1 #modalTitle class="modal-title fs-2 mx-auto text-info-emphasis" id="pdfModalLabel"> Certifying Organization </h1>
         <button type="button" class="btn" data-bs-dismiss="modal">
           <i class="fa-solid fa-circle-xmark fa-2xl"></i>
         </button>
       </div>
       <div class="modal-body text-center">
-        <embed>
+        <embed #embed>
       </div>
       <div class="modal-footer">
-        <h4 class="course-title fs-3 mx-auto"> Certification </h4>
+        <h4 #courseTitle class="course-title fs-3 mx-auto"> Certification </h4>
       </div>
     </div>
   </div>
