@@ -162,7 +162,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
       this.observer.unobserve(sectionInView)
     }
-  }, { threshold: [0.5, 0.6, 0.7, 0.8, 1] })
+  }, { threshold: [0.3, 0.5, 0.6, 0.7, 0.8, 1] })
 
   aboutMe: IAboutMe[] = [
     {
@@ -258,8 +258,6 @@ export class HomeComponent implements OnInit, AfterViewInit {
   getInTouchSection: IGetInTouch = {
     section: 'Get in Touch',
     imgPath: 'assets/home/get-in-touch_img.png',
-    formAction: 'https://formspree.io/f/mpzgzjge',
-    formMethod: 'POST',
     formElements: [
       {
         fieldType: 'IT',

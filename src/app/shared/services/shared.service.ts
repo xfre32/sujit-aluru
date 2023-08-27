@@ -9,7 +9,7 @@ export class SharedService {
   thisYear: number = new Date().getFullYear();
   currPath = '';
   previousPath = '';
-  scrolled = false;
+  isScrolling = false;
 
   pageNavs: IPageNavDetail[] = [
     {

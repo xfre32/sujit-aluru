@@ -13,12 +13,12 @@ export class AppComponent implements OnInit {
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
-    this.sharedService.scrolled = window.scrollY !== 0;
+    this.sharedService.isScrolling = window.scrollY !== 0;
   }
 
   @HostListener('window:scrollend', ['$event'])
   onScrollEnd() {
-    this.sharedService.scrolled = false;
+    this.sharedService.isScrolling = false;
   }
 
   ngOnInit(): void {

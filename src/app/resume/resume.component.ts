@@ -6,7 +6,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
   styleUrls: ['./resume.component.css']
 })
 export class ResumeComponent implements OnInit, AfterViewInit {
-  @ViewChild('#resumePreview') cardInView!: ElementRef;
+  @ViewChild('resumePreview') cardInView!: ElementRef;
 
   ngOnInit(): void {
     window.scroll(0, 0);

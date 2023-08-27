@@ -41,7 +41,5 @@ export interface IGetInTouchFormElements {
 export interface IGetInTouch {
   section: string,
   imgPath: string,
-  formAction: string,
-  formMethod: string,
   formElements: IGetInTouchFormElements[]
 }
