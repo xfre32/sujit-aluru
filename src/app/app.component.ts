@@ -21,12 +21,22 @@ export class AppComponent implements OnInit {
     this.sharedService.isScrolling = false;
   }
 
+  @HostListener('document:keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    if(event.key === 'ArrowLeft' && this.sharedService.prevPage) {
+      this.router.navigate([this.sharedService.prevPage]).then(r => r);
+    }
+    if(event.key === 'ArrowRight' && this.sharedService.nextPage) {
+      this.router.navigate([this.sharedService.nextPage]).then(r => r);
+    }
+  }
+
   ngOnInit(): void {
     this.router.events.subscribe((event: Event): void => {
       if(event instanceof NavigationEnd) {
         this.sharedService.previousPath = this.sharedService.currPath;
         const path = event.url.split('/')[1]
-        this.sharedService.currPath = path === "" ? "home" : path;
+        this.sharedService.currPath = path === "" ? "home" : path
       }
     });
   }

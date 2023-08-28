@@ -1,4 +1,4 @@
-import {AfterViewInit, Component, Input, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@angular/core';
 import {SharedService} from "../../services/shared.service";
 
 @Component({
@@ -12,6 +12,8 @@ export class HeroComponent implements OnInit, AfterViewInit {
   @Input() heroText!: string;
   @Input() heroDesc!: string;
   @Input() heroImageLeft!: boolean;
+
+  @ViewChild('heroSectionContainer') heroSectionContainer!: ElementRef<HTMLElement>
 
   prevId = 0;
   currId = 0;
@@ -32,18 +34,18 @@ export class HeroComponent implements OnInit, AfterViewInit {
     }
   }, {threshold: [0.3, 0.4, 0.5, 0.6]})
 
-  constructor(private sharedService: SharedService) {
+  constructor(protected sharedService: SharedService) {
   }
 
   ngOnInit(): void {
     this.prevId = this.sharedService.pageNavs.map(page => page.path).indexOf(this.sharedService.previousPath);
     this.currId = this.sharedService.pageNavs.map(page => page.path).indexOf(this.sharedService.currPath);
+    this.sharedService.nextPage = this.currId < 4 ? this.sharedService.pageNavs[this.currId + 1].path : '';
+    this.sharedService.prevPage = this.currId > 0 ? this.sharedService.pageNavs[this.currId - 1].path : '';
     this.transitionAnimation = this.currId >= this.prevId ? 'slide-in-left' : 'slide-in-right';
   }
 
   ngAfterViewInit(): void {
-    const heroSectionContainer: Element | null = document.querySelector('.hero-section-container');
-    if(heroSectionContainer)
-      this.observer.observe(heroSectionContainer);
+      this.observer.observe(this.heroSectionContainer.nativeElement);
   }
 }

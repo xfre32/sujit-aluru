@@ -15,7 +15,7 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
 
   imgPath = 'projects_img.png';
   heroText = 'My Projects';
-  heroDesc = 'some cool, some dumb, but I loved working every single one';
+  heroDesc = 'some cool, some dumb, but loved working every single one';
 
   ngOnInit(): void {
     window.scroll(0, 0)

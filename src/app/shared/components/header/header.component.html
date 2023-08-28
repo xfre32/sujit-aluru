@@ -21,7 +21,7 @@
               <ul class="navbar-nav nav-underline justify-content-end flex-grow-1 pe-0">
                 <li *ngFor="let item of headerNav" class="nav-item">
                   <a class="nav-link fs-5 pb-4" data-bs-dismiss="offcanvas" [ngClass]="{'active': sharedService.currPath === item.path}"
-                  [routerLink]="[item.path]" (click)="getCurrPath()">
+                  [routerLink]="item.path" (click)="getCurrPath()">
                     <i [class]="'fa-solid ' + item.icon"></i>
                     {{ item.name }}
                   </a>
