@@ -1,37 +1,33 @@
-  <div class="container-fluid px-lg-5 bg-light vw-100">
-    <div #heroSectionContainer class="row mx-auto mt-5 justify-content-center hero-section-container align-items-lg-center">
-      <div class="col-12 col-xl-6 text-center"
-      [ngClass]="{'order-xl-last': heroImageLeft}">
-        <img
-          class="img-fluid mb-4 hero-section opacity-0"
-          width="600"
-          height="600"
-          [ngSrc]="'assets/' + heroImage"
-          priority="true"
-          alt="Hero image"
-        />
-      </div>
-      <div class="col-12 col-xl-6 text-center hero-section opacity-0">
-        <div class="row">
-          <div class="col-12">
-              <h1 class="display-4 mt-0 mb-1">{{ heroText }}</h1>
-              <p class="lead fs-3 text-black-50">{{ heroDesc }}</p>
-          </div>
-          <div class="col-12 mt-2 mx-auto">
-            <a class="btn btn-lg btn-outline-dark border border-dark border-0 rounded-5 nav-icon px-3 mx-4 nav-icon-left" *ngIf="sharedService.prevPage" [routerLink]="'/' + sharedService.prevPage">
-              <i class="fa-solid fa-chevron-left fa-2xl"></i>
-              <i class="fa-solid fa-chevron-left fa-xl"></i>
-              <i class="fa-solid fa-chevron-left fa-lg"></i>
-              <i class="fa-solid fa-chevron-left"></i>
-            </a>
-            <a class="btn btn-lg btn-outline-dark border border-dark border-0 rounded-5 nav-icon px-3 mx-4 nav-icon-right" *ngIf="sharedService.nextPage" [routerLink]="'/' + sharedService.nextPage">
-              <i class="fa-solid fa-chevron-right"></i>
-              <i class="fa-solid fa-chevron-right fa-lg"></i>
-              <i class="fa-solid fa-chevron-right fa-xl"></i>
-              <i class="fa-solid fa-chevron-right fa-2xl"></i>
-            </a>
-          </div>
+<div class="container-fluid px-lg-5 bg-light vw-100">
+  <div #heroSectionContainer class="row mx-auto mt-5 justify-content-center hero-section-container align-items-lg-center">
+    <div class="col-12 col-xl-6 text-center"
+    [ngClass]="{'order-xl-last': heroImageLeft}">
+      <img
+        class="img-fluid mb-4 hero-section opacity-0"
+        width="600"
+        height="600"
+        [ngSrc]="'assets/' + heroImage"
+        priority="true"
+        alt="Hero image"
+      />
+    </div>
+    <div class="col-12 col-xl-6 text-center hero-section opacity-0">
+      <div class="row">
+        <div class="col-12">
+            <h1 class="display-4 mt-0 mb-1">{{ heroText }}</h1>
+            <p class="lead fs-3 text-black-50">{{ heroDesc }}</p>
+        </div>
+        <div class="col-12 my-2 mx-auto order-lg-first">
+          <a class="btn btn-lg btn-outline-dark border border-dark border-0 rounded-5 nav-icon px-3 mx-4 nav-icon-left" *ngIf="sharedService.prevPage" [routerLink]="'/' + sharedService.prevPage">
+            <i class="fa-solid fa-caret-left fa-2xl"></i>
+            <i class="fa-solid fa-caret-left fa-xl"></i>
+          </a>
+          <a class="btn btn-lg btn-outline-dark border border-dark border-0 rounded-5 nav-icon px-3 mx-4 nav-icon-right" *ngIf="sharedService.nextPage" [routerLink]="'/' + sharedService.nextPage">
+            <i class="fa-solid fa-caret-right fa-xl"></i>
+            <i class="fa-solid fa-caret-right fa-2xl"></i>
+          </a>
         </div>
       </div>
     </div>
   </div>
+</div>

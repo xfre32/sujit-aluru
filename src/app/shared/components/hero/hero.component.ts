@@ -7,13 +7,12 @@ import {SharedService} from "../../services/shared.service";
   styleUrls: ['./hero.component.css']
 })
 export class HeroComponent implements OnInit, AfterViewInit {
+  @ViewChild('heroSectionContainer') heroSectionContainer!: ElementRef<HTMLElement>
 
   @Input() heroImage!: string;
   @Input() heroText!: string;
   @Input() heroDesc!: string;
   @Input() heroImageLeft!: boolean;
-
-  @ViewChild('heroSectionContainer') heroSectionContainer!: ElementRef<HTMLElement>
 
   prevId = 0;
   currId = 0;
@@ -46,6 +45,6 @@ export class HeroComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-      this.observer.observe(this.heroSectionContainer.nativeElement);
+    this.observer.observe(this.heroSectionContainer.nativeElement);
   }
 }

@@ -9,10 +9,13 @@ p {
     font-weight: 200;
 }
 
-
 .nav-icon {
   font-size: xx-large;
   transition: all 0.2s ease-in-out;
+}
+
+.nav-icon-down:hover {
+  transform: translateY(10px) scale(1.2);
 }
 
 .nav-icon-left:hover {
