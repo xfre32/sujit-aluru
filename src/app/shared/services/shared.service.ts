@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {IPageNavDetail} from "../models/custom-models.interface";
+import {IBreakPoints, IPageNavDetail} from "../models/custom-models.interface";
 
 @Injectable({
   providedIn: 'root'
@@ -41,4 +41,42 @@ export class SharedService {
     }
   ]
 
+  breakPoints: IBreakPoints[] = [
+    {
+      minWidth: null,
+      maxWidth: 575,
+      bp: 'xs'
+    },
+    {
+      minWidth: 576,
+      maxWidth: 767,
+      bp: 'sm'
+    },
+    {
+      minWidth: 768,
+      maxWidth: 991,
+      bp: 'md'
+    },
+    {
+      minWidth: 992,
+      maxWidth: 1199,
+      bp: 'lg'
+    },
+    {
+      minWidth: 1200,
+      maxWidth: 1399,
+      bp: 'xl'
+    },
+    {
+      minWidth: 1400,
+      maxWidth: null,
+      bp: 'xxl'
+    }
+  ]
+
+  get getBreakpointsToObserve() {
+    return this.breakPoints.map((bp: IBreakPoints) => bp.minWidth ? `(min-width: ${bp.minWidth}px)` : `(max-width: ${bp.maxWidth}px)`
+    )
+
+  }
 }

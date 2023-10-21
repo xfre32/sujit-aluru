@@ -10,3 +10,9 @@ export interface IPageNavDetail {
   name: string,
   icon: string
 }
+
+export interface IBreakPoints {
+  minWidth: number | null,
+  maxWidth: number | null,
+  bp: string,
+}

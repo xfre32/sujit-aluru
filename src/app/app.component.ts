@@ -1,6 +1,7 @@
 import {Component, HostListener, OnInit} from '@angular/core';
 import {NavigationEnd, Router, Event} from "@angular/router";
 import {SharedService} from "./shared/services/shared.service";
+import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,12 @@ import {SharedService} from "./shared/services/shared.service";
 })
 export class AppComponent implements OnInit {
 
-  constructor(private router: Router, private sharedService: SharedService) {}
+  constructor(private router: Router, private sharedService: SharedService, private breakpointObserver: BreakpointObserver) {}
+
+  readonly breakpoint$ = this.breakpointObserver.observe(this.sharedService.getBreakpointsToObserve).subscribe(result => {
+    console.log(result)
+    this.breakpointChanged();
+  })
 
   @HostListener('window:scroll', ['$event'])
   onScroll() {
@@ -39,6 +45,27 @@ export class AppComponent implements OnInit {
         this.sharedService.currPath = path === "" ? "home" : path
       }
     });
+  }
+
+  breakpointChanged() {
+    if(this.breakpointObserver.isMatched(`(min-width: ${this.sharedService.breakPoints[5].minWidth}px)`)) {
+      console.log(this.sharedService.breakPoints[5].minWidth)
+    }
+    else if(this.breakpointObserver.isMatched(`(min-width: ${this.sharedService.breakPoints[4].minWidth}px)`)) {
+      console.log(this.sharedService.breakPoints[4].minWidth)
+    }
+    else if(this.breakpointObserver.isMatched(`(min-width: ${this.sharedService.breakPoints[3].minWidth}px)`)) {
+      console.log(this.sharedService.breakPoints[3].minWidth)
+    }
+    else if(this.breakpointObserver.isMatched(`(min-width: ${this.sharedService.breakPoints[2].minWidth}px)`)) {
+      console.log(this.sharedService.breakPoints[2].minWidth)
+    }
+    else if(this.breakpointObserver.isMatched(`(min-width: ${this.sharedService.breakPoints[1].minWidth}px)`)) {
+      console.log(this.sharedService.breakPoints[1].minWidth)
+    }
+    else if(this.breakpointObserver.isMatched(`(max-width: ${this.sharedService.breakPoints[0].maxWidth}px)`)) {
+      console.log(this.sharedService.breakPoints[0].maxWidth)
+    }
   }
 
 }
