@@ -16,6 +16,14 @@ embed {
   height: 500px;
 }
 
+.card-btn {
+  transition: 0.2s;
+}
+
+.card-btn:hover {
+  transform: translateY(-5px);
+}
+
 .card-fade-in-from-left {
   animation: fade-in-left 0.8s ease-in-out;
 }

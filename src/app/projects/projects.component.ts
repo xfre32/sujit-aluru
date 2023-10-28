@@ -35,14 +35,14 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       works: [
         {
           title: 'Concept Design',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A concept-design for a Heart-rate monitoring app, crafted with Adobe Creative Suite tools, encompassing the idea, mood-board, pattern library, and a static interface.',
           previewImg: 'concept_art.png',
           preview: 'assets/projects/pdfs/final.pdf',
           source: 'assets/projects/pdfs/final.pdf'
         },
         {
           title: 'Typographic poster',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A typographic poster for Franklin Gothic, designed with Adobe Creative Suite tools, showcasing the typeface\'s essence and interpretation.',
           previewImg: 'poster.png',
           preview: 'assets/projects/pdfs/poster.pdf',
           source: 'assets/projects/pdfs/poster.pdf'
@@ -54,42 +54,42 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       works: [
         {
           title: 'Stock Tracker',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A simple stock tracker web-app built using Angular and Bootstrap, integrated with Finnhub API service that provides all the necessary quote and insider sentiment data for various stocks. The searched stocks are kept as a list in user\'s local-storage to maintain a watchlist.',
           previewImg: 'stock_tracker.png',
           preview: 'https://xfre32.github.io/stock-tracker-app',
           source: 'https://github.com/xfre32/stock-tracker-app'
         },
         {
           title: 'Expense Tracker',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'An Expense Tracker web-app built with React that lets user add expenses for each month and year and displays a mini expense-chart.',
           previewImg: 'expense_tracker.png',
           preview: 'https://0s482.csb.app/',
           source: 'https://github.com/xfre32/Expense-Tracker'
         },
         {
           title: 'Keeper',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A simple notes web-app built with react with modern and intuitive design to make quick notes.',
           previewImg: 'keeper_app.png',
           preview: 'https://nmpok.csb.app/',
           source: 'https://codesandbox.io/s/keeper-app-nmpok'
         },
         {
           title: 'To-do List',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A basic To-do list react web-app with funky interface to keep track of to-do list items.',
           previewImg: 'to_do_list.png',
           preview: 'https://4pd0c.csb.app/',
           source: 'https://codesandbox.io/s/to-do-list-4pd0c'
         },
         {
           title: 'Emojipedia',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A Goof react web-app to display a list of emojis and their description in a responsive grid layout.',
           previewImg: 'emojipedia.png',
           preview: 'https://d8e4m.csb.app/',
           source: 'https://codesandbox.io/s/emojipedia-d8e4m'
         },
         {
           title: 'Live Clock',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A Simple react web-app to display current time.',
           previewImg: 'time.png',
           preview: 'https://kqof9.csb.app/',
           source: 'https://codesandbox.io/s/live-clock-kqof9'
@@ -101,49 +101,49 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
       works: [
         {
           title: 'My Old Portfolio',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'My old personal website built with HTML, CSS and Bootstrap.',
           previewImg: 'portfolio_old.png',
           preview: 'https://xfre32.github.io/Portfolio',
           source: 'https://github.com/xfre32/Portfolio'
         },
         {
           title: 'Price Table',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A Responsive design mock-up of a generic pricing table built using HTML and CSS flexbox.',
           previewImg: 'price_table.png',
           preview: 'https://xfre32.github.io/Price-Table',
           source: 'https://github.com/xfre32/Price-Table'
         },
         {
           title: 'ICPEDC2021',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A site created for my college as an informational platform for International Conference on Power and Embedded Drive control - 2021, built with HTML, CSS & Bootstrap.',
           previewImg: 'college.png',
           preview: 'https://xfre32.github.io/ICPEDC2021',
           source: 'https://github.com/xfre32/ICPEDC2021'
         },
         {
           title: 'Simon Game',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'An interactive memory game built with HTML, CSS and JavaScript (primarily event-listeners)',
           previewImg: 'simon_game.png',
           preview: 'https://xfre32.github.io/Simon-Game',
           source: 'https://github.com/xfre32/Simon-Game'
         },
         {
           title: 'Drum Kit',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A simple Drum-Kit, developed using HTML5, CSS3, and JavaScript event listeners.',
           previewImg: 'drum_kit.png',
           preview: 'https://xfre32.github.io/Drum-Kit',
           source: 'https://github.com/xfre32/Drum-Kit'
         },
         {
           title: 'Dicee',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'An interactive web page, created with HTML5, CSS3 and JavaScript.',
           previewImg: 'dice.png',
           preview: 'https://xfre32.github.io/Dicee',
           source: 'https://github.com/xfre32/Dicee'
         },
         {
           title: 'TinDog',
-          description: 'some random description about the project, tools and technologies used and platform on which it was hosted.',
+          description: 'A static web page, constructed with HTML5, CSS3, and Bootstrap; Emphasizing design, responsiveness, and accessibility, even though it\'s a mock-up!',
           previewImg: 'tindog.png',
           preview: 'https://xfre32.github.io/Tindog-mockup',
           source: 'https://github.com/xfre32/Tindog-mockup'
