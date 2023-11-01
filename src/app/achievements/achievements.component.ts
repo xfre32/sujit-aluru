@@ -9,6 +9,7 @@ import {ICertification, ICertificationDetail} from "../shared/models/achievement
   styleUrls: ['./achievements.component.css']
 })
 export class AchievementsComponent implements OnInit, AfterViewInit {
+  @ViewChild('root') root!: ElementRef<HTMLElement>
   @ViewChild('pdfModal') pdfModal!: ElementRef<HTMLElement>;
   @ViewChildren('carousel') carousels!: QueryList<ElementRef<HTMLElement>>;
   @ViewChildren('card') allCards!: QueryList<ElementRef<HTMLElement>>;
@@ -23,6 +24,8 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.sharedService.scrollIntoView(this.root.nativeElement);
+
     if(this.pdfModal.nativeElement)
       this.modalEventListener(this.pdfModal.nativeElement);
 

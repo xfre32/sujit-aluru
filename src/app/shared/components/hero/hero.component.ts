@@ -47,4 +47,8 @@ export class HeroComponent implements OnInit, AfterViewInit {
   ngAfterViewInit(): void {
     this.observer.observe(this.heroSectionContainer.nativeElement);
   }
+
+  goDown() {
+    this.sharedService.updateScrollStatus(true)
+  }
 }

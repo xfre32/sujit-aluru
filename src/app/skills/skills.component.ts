@@ -1,5 +1,6 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import { ISkillSet } from "../shared/models/skills-type.interface";
+import {SharedService} from "../shared/services/shared.service";
 
 @Component({
   selector: 'app-skills',
@@ -7,12 +8,16 @@ import { ISkillSet } from "../shared/models/skills-type.interface";
   styleUrls: ['./skills.component.css']
 })
 export class SkillsComponent implements OnInit, AfterViewInit {
+  @ViewChild('root') root!: ElementRef;
+
+  constructor(private sharedService: SharedService) {}
 
   ngOnInit(): void {
     window.scroll(0, 0);
   }
 
   ngAfterViewInit(): void {
+    this.sharedService.scrollIntoView(this.root.nativeElement);
     const allCards: NodeListOf<Element> = document.querySelectorAll('.card');
     allCards.forEach((card: Element) => {
       this.observer.observe(card)

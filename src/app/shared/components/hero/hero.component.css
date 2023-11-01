@@ -9,6 +9,10 @@ p {
     font-weight: 200;
 }
 
+.scroll-down {
+  animation: goDown 2s ease infinite;
+}
+
 .nav-icon {
   font-size: xx-large;
   transition: all 0.2s ease-in-out;
@@ -58,4 +62,23 @@ p {
     filter: blur(0);
     transform: translateX(0);
   }
+}
+
+@keyframes goDown {
+  0% {
+    transform: translateY(0);
+    background: none;
+    color: #212529;
+  }
+  50% {
+    transform: translateY(15px);
+    background-color: #212529;
+    color: white;
+  }
+  100% {
+    transform: translateY(0);
+    background: none;
+    color: #212529;
+  }
+
 }

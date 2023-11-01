@@ -1,7 +1,7 @@
 <app-hero [heroImage]="imgPath" [heroText]="heroText" [heroDesc]="heroDesc" [heroImageLeft]="true">
 </app-hero>
 
-<div class="container">
+<div #root class="container">
   <div *ngFor="let item of skillSet; let i = index" class="row align-items-center my-5">
     <div class="col-12 col-md-10 col-lg-6 col-xl-6 mx-md-auto py-lg-4 py-0" [ngClass]="{'order-lg-last ms-lg-auto': i % 2 !== 0, 'order-lg-first me-lg-auto': i % 2 === 0}">
       <div (mouseenter)="onHover($event)" (mouseleave)="onHover($event)"

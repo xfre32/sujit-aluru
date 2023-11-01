@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {IBreakPoints, IPageNavDetail} from "../models/custom-models.interface";
+import {BehaviorSubject} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,8 @@ export class SharedService {
   nextPage = '';
   prevPage = '';
   isScrolling = false;
+  private scrollRequiredSubject = new BehaviorSubject<boolean>(false);
+  scrollRequired$ = this.scrollRequiredSubject.asObservable();
 
   pageNavs: IPageNavDetail[] = [
     {
@@ -77,6 +80,18 @@ export class SharedService {
   get getBreakpointsToObserve() {
     return this.breakPoints.map((bp: IBreakPoints) => bp.minWidth ? `(min-width: ${bp.minWidth}px)` : `(max-width: ${bp.maxWidth}px)`
     )
+  }
 
+  updateScrollStatus(status: boolean) {
+    this.scrollRequiredSubject.next(status);
+  }
+
+  scrollIntoView(targetComponent: Element) {
+    this.scrollRequired$.subscribe((status) => {
+      if(status) {
+        targetComponent.scrollIntoView({behavior: "smooth"})
+        this.updateScrollStatus(false);
+      }
+    })
   }
 }

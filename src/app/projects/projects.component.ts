@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {IProjects} from "../shared/models/projects-type.interface";
 import {Modal} from "bootstrap";
+import {SharedService} from "../shared/services/shared.service";
 
 @Component({
   selector: 'app-projects',
@@ -8,10 +9,13 @@ import {Modal} from "bootstrap";
   styleUrls: ['./projects.component.css']
 })
 export class ProjectsComponent implements OnInit, AfterViewInit {
+  @ViewChild('root') root!: ElementRef<HTMLFormElement>;
   @ViewChild('embed') targetElement!: ElementRef<HTMLElement>;
   @ViewChild('modalTitle') projectHeading!: ElementRef<HTMLElement>;
   @ViewChild('projectModal') projectModal!: ElementRef<HTMLElement>;
   @ViewChildren('card') projectCards!: QueryList<ElementRef<HTMLElement>>;
+
+  constructor(private sharedService: SharedService) {}
 
   imgPath = 'projects_img.png';
   heroText = 'My Projects';
@@ -22,6 +26,8 @@ export class ProjectsComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit() {
+    this.sharedService.scrollIntoView(this.root.nativeElement);
+
     this.projectCards.forEach((card: ElementRef) => {
       this.observer.observe(card.nativeElement);
     });

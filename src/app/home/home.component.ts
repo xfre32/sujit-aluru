@@ -2,6 +2,7 @@ import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, View
 import { Toast } from 'bootstrap';
 import { IAboutMe, IGetInTouch, IPhilosophy, IStrength } from "../shared/models/home-type.interface";
 import emailJs  from "@emailjs/browser";
+import {SharedService} from "../shared/services/shared.service";
 
 @Component({
   selector: 'app-home',
@@ -9,9 +10,12 @@ import emailJs  from "@emailjs/browser";
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit, AfterViewInit {
+  @ViewChild('root') root!: ElementRef<HTMLFormElement>;
   @ViewChildren('section1, section2, section3, section4') sections!: QueryList<ElementRef<HTMLElement>>;
   @ViewChild('needsValidation') getInTouchForm!: ElementRef<HTMLFormElement>;
   @ViewChild('mailSentToast') mailSentToast!: ElementRef<HTMLFormElement>;
+
+  constructor(private sharedService: SharedService) {}
 
   imgPath = 'home_img.png';
   heroText = "Hello, I'm Sujit Aluru";
@@ -33,6 +37,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    this.sharedService.scrollIntoView(this.root.nativeElement);
     this.sections.forEach((section: ElementRef): void => {
       this.observer.observe(section.nativeElement);
     });

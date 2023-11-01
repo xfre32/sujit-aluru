@@ -14,8 +14,11 @@
     <div class="col-12 col-xl-6 text-center hero-section opacity-0">
       <div class="row">
         <div class="col-12">
-            <h1 class="display-4 mt-0 mb-1">{{ heroText }}</h1>
-            <p class="lead fs-3 text-black-50">{{ heroDesc }}</p>
+          <h1 class="display-4 mt-0 mb-1">{{ heroText }}</h1>
+          <p class="lead fs-3 text-black-50">{{ heroDesc }}</p>
+          <button class="btn d-none d-lg-inline-block rounded-5 scroll-down" (click)="goDown()">
+            <i class="fa-solid fa-arrow-down fa-2xl py-4 fs-1"></i>
+          </button>
         </div>
         <div class="col-12 my-2 mx-auto order-lg-first">
           <a class="btn btn-lg btn-outline-dark border border-dark border-0 rounded-5 nav-icon px-3 mx-4 nav-icon-left" *ngIf="sharedService.prevPage" [routerLink]="'/' + sharedService.prevPage">
