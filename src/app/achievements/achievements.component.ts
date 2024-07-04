@@ -1,4 +1,13 @@
-import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  HostListener,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import { SharedService } from '../shared/services/shared.service';
 import {Carousel, Modal} from "bootstrap";
 import {ICertification, ICertificationDetail} from "../shared/models/achievements-type.interface";
@@ -17,7 +26,20 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
   @ViewChild('modalTitle') modalTitle!: ElementRef<HTMLElement>
   @ViewChild('embed') pdfObject!: ElementRef<HTMLElement>
 
+  contentAvailable = false;
+
   constructor(private sharedService: SharedService) {}
+
+  @HostListener('window:load', ['$event'])
+  onWindowLoad(event: Event): void {
+    // Check if the target of the event is the embed element
+    console.log("event triggered")
+    if (event.target === this.pdfObject.nativeElement.querySelector('embed')) {
+      console.log('Content loaded!');
+      this.contentAvailable = true;
+      // You can perform additional actions here
+    }
+  }
 
   ngOnInit(): void {
     window.scroll(0, 0);
@@ -62,6 +84,8 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
       const id = image ? image.getAttribute('id') : null;
       const title = image ? image.getAttribute('alt') : null;
       this.courseTitle.nativeElement.textContent = title;
+
+      console.log(this.pdfObject)
 
       this.pdfObject.nativeElement.setAttribute('src', `${this.pdfSrc}/pdf${id}.pdf`);
 
@@ -224,4 +248,8 @@ export class AchievementsComponent implements OnInit, AfterViewInit {
       ]
     },
   ]
+
+  contentLoaded() {
+    this.contentAvailable = true;
+  }
 }

@@ -3,39 +3,39 @@
 
 <div #root class="container mt-5">
   <section #section1 *ngFor="let section of aboutMe" class="row about-me py-3 p-md-2 mx-auto">
-    <h1 class="display-6 fw-lighter opacity-0">{{ section.section }}</h1>
-    <h2 class="display-4 fw-bolder opacity-0">{{ section.caption }}</h2>
-    <div *ngFor="let item of section['items']; let i = index" class="col-12 col-md-6 col-lg-4 opacity-0">
+    <h1 [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="display-6 fw-lighter">{{ section.section }}</h1>
+    <h2 [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="display-4 fw-bolder">{{ section.caption }}</h2>
+    <div [ngClass]="{'opacity-0': !sharedService.viewInit.home}" *ngFor="let item of section['items']; let i = index" class="col-12 col-md-6 col-lg-4">
       <h3 class="display-1 fw-bolder text-secondary">{{ i + 1  | leadingZero}}</h3>
       <h4 class="fs-5 fw-semibold text-primary">{{ item['org'] }}</h4>
       <h4 class="fs-6 fw-semibold text-secondary">{{ item.role }}, {{ item.duration }}</h4>
       <p class="fs-6 lead fw-lighter text-black">{{ item.description }}</p>
     </div>
-    <hr class="border border-light-subtle border-1 w-25 opacity-0 mx-auto">
+    <hr [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="border border-light-subtle border-1 w-25 mx-auto">
   </section>
 
-  <section #section2 class="row bg-body-secondary align-items-center rounded-3 opacity-0 phil-values p-0 mx-auto my-3">
+  <section #section2 [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="row bg-body-secondary align-items-center rounded-3 phil-values p-0 mx-auto my-3">
     <div class="col-12 col-lg-6 col-xl-8 p-3 p-lg-5 pe-lg-2 pb-0 pb-lg-5">
-      <h1 class="display-4 fw-bolder text-black opacity-0">{{ philosophicalValuesSection.section }}</h1>
-      <hr class="border border-dark-subtle border-1 w-25 opacity-0">
-      <p class="fs-4 lead fw-lighter text-black opacity-0">{{ philosophicalValuesSection["philosophicalValue"] }}</p>
+      <h1 [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="display-4 fw-bolder text-black">{{ philosophicalValuesSection.section }}</h1>
+      <hr [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="border border-dark-subtle border-1 w-25">
+      <p [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="fs-4 lead fw-lighter text-black">{{ philosophicalValuesSection["philosophicalValue"] }}</p>
     </div>
-    <div class="col-12 col-md-9 col-lg-6 col-xl-4 opacity-0 mx-auto ">
+    <div [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="col-12 col-md-9 col-lg-6 col-xl-4 mx-auto ">
       <img [src]="philosophicalValuesSection['imageSrc']" alt="philosophical values" class="img-fluid">
     </div>
   </section>
 
   <section #section3 class="row strengths px-3 py-lg-5 my-5">
     <div class="col-12 col-lg-5 me-auto">
-      <h1 class="display-4 fw-bolder mb-4 opacity-0">{{strengthsSection.section}}</h1>
-      <p class="lead fs-5 text-secondary pe-lg-5 mb-4 opacity-0">{{ strengthsSection.caption }}</p>
-      <p class="lead mb-5 opacity-0">
+      <h1 [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="display-4 fw-bolder mb-4">{{strengthsSection.section}}</h1>
+      <p [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="lead fs-5 text-secondary pe-lg-5 mb-4">{{ strengthsSection.caption }}</p>
+      <p [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="lead mb-5">
         <a class="link-underline-dark link-offset-3 py-2 know-more" routerLink="/skills">
           Know More
           <i class="ms-2 fa-solid fa-arrow-right-long"></i></a>
       </p>
     </div>
-    <div class="col-12 col-lg-7 ms-auto opacity-0">
+    <div [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="col-12 col-lg-7 ms-auto">
       <div class="row justify-content-center">
         <div *ngFor="let strength of strengthsSection['strengths']" class="col-6 my-3">
           <i [class]="'fa-solid fa-2xl fs-1 mb-4 domain ' + strength.icon"></i>
@@ -46,16 +46,16 @@
         </div>
       </div>
     </div>
-    <hr class="border border-light-subtle border-1 opacity-100 mx-auto w-25 opacity-0">
+    <hr [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="border border-light-subtle border-1 opacity-100 mx-auto w-25">
   </section>
 
   <section #section4 id="get-in-touch" class="row getInTouch justify-content-center mx-auto p-1 mt-lg-5 align-items-auto">
-    <div class="col-12 col-lg-4 col-xl-4 me-auto opacity-0 order-last order-lg-first">
+    <div [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="col-12 col-lg-4 col-xl-4 me-auto order-last order-lg-first">
       <img [src]="getInTouchSection['imgPath']" [alt]="getInTouchSection.section" class="img-fluid">
     </div>
     <div class="col-12 col-lg-8 col-xl-7 ms-auto">
-      <h1 class="display-4 fw-bolder mb-4 opacity-0">{{ getInTouchSection.section }}</h1>
-      <form #needsValidation class="row opacity-0 needs-validation" novalidate>
+      <h1 [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="display-4 fw-bolder mb-4">{{ getInTouchSection.section }}</h1>
+      <form #needsValidation [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="row needs-validation" novalidate>
         <div *ngFor="let item of getInTouchSection['formElements']" [class]="'col-12 form-floating mb-3 ' + item.cols">
           <input autocomplete="name" *ngIf="item['fieldType'] === 'IT'" [type]="item.inputType" class="form-control border-3 focus-ring focus-ring-dark"
                  [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.from_name" required>

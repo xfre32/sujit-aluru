@@ -1,4 +1,13 @@
-import {AfterViewInit, Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
+import {
+  AfterViewInit,
+  Component,
+  ElementRef,
+  OnDestroy,
+  OnInit,
+  QueryList,
+  ViewChild,
+  ViewChildren
+} from '@angular/core';
 import { Toast } from 'bootstrap';
 import { IAboutMe, IGetInTouch, IPhilosophy, IStrength } from "../shared/models/home-type.interface";
 import emailJs  from "@emailjs/browser";
@@ -9,18 +18,18 @@ import {SharedService} from "../shared/services/shared.service";
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit, AfterViewInit {
+export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('root') root!: ElementRef<HTMLFormElement>;
   @ViewChildren('section1, section2, section3, section4') sections!: QueryList<ElementRef<HTMLElement>>;
   @ViewChild('needsValidation') getInTouchForm!: ElementRef<HTMLFormElement>;
   @ViewChild('mailSentToast') mailSentToast!: ElementRef<HTMLFormElement>;
 
-  constructor(private sharedService: SharedService) {}
+  constructor(protected sharedService: SharedService) {}
 
   imgPath = 'home_img.png';
   heroText = "Hello, I'm Sujit Aluru";
   heroDesc = "Turning pixels into smiles, one line of code at a time";
-  emailJsPublicKey = "0EMmgRb5oefJS-Gi_";
+  emailJsPublicKey = "bExVNWt7TiH8e_kmq";
   serviceID = "service_contactMe";
   templateID = "template_q7hqbp9";
   templateParams = {
@@ -38,9 +47,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.sharedService.scrollIntoView(this.root.nativeElement);
-    this.sections.forEach((section: ElementRef): void => {
-      this.observer.observe(section.nativeElement);
-    });
+    // if(!this.sharedService.viewInit.home) {
+      this.sections.forEach((section: ElementRef): void => {
+        this.observer.observe(section.nativeElement);
+      });
+    // }
 
     this.formEventListener(this.getInTouchForm.nativeElement, this.mailSentToast.nativeElement);
   }
@@ -60,10 +71,11 @@ export class HomeComponent implements OnInit, AfterViewInit {
         }
     },
     (error) => {
+      toastBootstrap.show();
       console.log('FAILED', error)
       this.emailStatus = false;
       this.mailSentLoader = false;
-      this.toastMessage = "Message Failed";
+      this.toastMessage = "Message failed to send";
     })
   }
 
@@ -297,6 +309,10 @@ export class HomeComponent implements OnInit, AfterViewInit {
         label: ''
       }
     ]
+  }
+
+  ngOnDestroy() {
+    // this.sharedService.viewInit.home = true;
   }
 
 }

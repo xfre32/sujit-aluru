@@ -45,7 +45,12 @@
         </button>
       </div>
       <div class="modal-body text-center">
-        <embed #embed>
+        <div *ngIf="!contentAvailable">
+          <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+        </div>
+        <embed (load)="contentLoaded()" #embed>
       </div>
       <div class="modal-footer">
         <h4 #courseTitle class="course-title fs-3 mx-auto"> Certification </h4>

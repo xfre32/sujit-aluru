@@ -16,6 +16,14 @@ export class SharedService {
   private scrollRequiredSubject = new BehaviorSubject<boolean>(false);
   scrollRequired$ = this.scrollRequiredSubject.asObservable();
 
+  viewInit = {
+    home: false,
+    skills: false,
+    projects: false,
+    achievements: false,
+    resume: false
+  }
+
   pageNavs: IPageNavDetail[] = [
     {
       path: 'home',
