@@ -313,6 +313,7 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnDestroy() {
     // this.sharedService.viewInit.home = true;
+    console.log("home destroyed")
   }
 
 }
