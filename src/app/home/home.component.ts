@@ -21,7 +21,7 @@ import {SharedService} from "../shared/services/shared.service";
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('root') root!: ElementRef<HTMLFormElement>;
-  @ViewChildren('section1, section2, section3, section4') sections!: QueryList<ElementRef<HTMLElement>>;
+  @ViewChildren('sec') sections!: QueryList<ElementRef<HTMLElement>>;
   @ViewChild('needsValidation') getInTouchForm!: ElementRef<HTMLFormElement>;
   @ViewChild('mailSentToast') mailSentToast!: ElementRef<HTMLFormElement>;
 
