@@ -35,7 +35,8 @@ export interface IGetInTouchFormElements {
   cols: string,
   id: string,
   placeholder: string,
-  label: string
+  label: string,
+  bindVal: string
 }
 
 export interface IGetInTouch {

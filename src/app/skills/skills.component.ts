@@ -3,9 +3,10 @@ import { ISkillSet } from "../shared/models/skills-type.interface";
 import {SharedService} from "../shared/services/shared.service";
 
 @Component({
-  selector: 'app-skills',
-  templateUrl: './skills.component.html',
-  styleUrls: ['./skills.component.css']
+    selector: 'app-skills',
+    templateUrl: './skills.component.html',
+    styleUrls: ['./skills.component.css'],
+    standalone: false
 })
 export class SkillsComponent implements OnInit, AfterViewInit {
   @ViewChild('root') root!: ElementRef;

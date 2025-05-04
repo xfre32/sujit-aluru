@@ -57,10 +57,12 @@
       <h1 [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="display-4 fw-bolder mb-4">{{ getInTouchSection.section }}</h1>
       <form #needsValidation [ngClass]="{'opacity-0': !sharedService.viewInit.home}" class="row needs-validation" novalidate>
         <div *ngFor="let item of getInTouchSection['formElements']" [class]="'col-12 form-floating mb-3 ' + item.cols">
-          <input autocomplete="name" *ngIf="item['fieldType'] === 'IT'" [type]="item.inputType" class="form-control border-3 focus-ring focus-ring-dark"
-                 [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.from_name" required>
-          <input autocomplete="email" *ngIf="item['fieldType'] === 'IE'" [type]="item.inputType" class="form-control border-3 focus-ring focus-ring-dark"
-                 [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.reply_to" required>
+          <input [autocomplete]="item.id" *ngIf="item['fieldType'] === 'IN'" [type]="item.inputType" class="form-control border-3 focus-ring focus-ring-dark"
+                 [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.name" required>
+          <input [autocomplete]="item.id" *ngIf="item['fieldType'] === 'IE'" [type]="item.inputType" class="form-control border-3 focus-ring focus-ring-dark"
+                 [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.email" required>
+          <input [autocomplete]="item.id" *ngIf="item['fieldType'] === 'IT'" [type]="item.inputType" class="form-control border-3 focus-ring focus-ring-dark"
+                 [id]="item.id" [name]="item.id" [placeholder]="item.placeholder" [(ngModel)]="templateParams.title" required>
           <textarea autocomplete="off" *ngIf="item['fieldType'] === 'T'" class="form-control border-3 focus-ring focus-ring-dark" [placeholder]="item.placeholder"
                     [name]="item.id" [id]="item.id" [(ngModel)]="templateParams.message" required></textarea>
           <button *ngIf="item['fieldType'] === 'B'" class="btn btn-dark btn-lg rounded-1" [name]="item.id" [type]="item.inputType">

@@ -4,9 +4,10 @@ import { Router, Event, NavigationEnd } from '@angular/router';
 import { IPageNavDetail } from "../../models/custom-models.interface";
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+    selector: 'app-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css'],
+    standalone: false
 })
 export class HeaderComponent {
 

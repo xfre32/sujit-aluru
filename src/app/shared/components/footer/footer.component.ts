@@ -3,9 +3,10 @@ import { SharedService } from '../../services/shared.service';
 import {IFooterList, IPageNavDetail} from "../../models/custom-models.interface";
 
 @Component({
-  selector: 'app-footer',
-  templateUrl: './footer.component.html',
-  styleUrls: ['./footer.component.css']
+    selector: 'app-footer',
+    templateUrl: './footer.component.html',
+    styleUrls: ['./footer.component.css'],
+    standalone: false
 })
 export class FooterComponent {
 

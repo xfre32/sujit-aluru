@@ -13,9 +13,10 @@ import {Carousel, Modal} from "bootstrap";
 import {ICertification, ICertificationDetail} from "../shared/models/achievements-type.interface";
 
 @Component({
-  selector: 'app-achievements',
-  templateUrl: './achievements.component.html',
-  styleUrls: ['./achievements.component.css']
+    selector: 'app-achievements',
+    templateUrl: './achievements.component.html',
+    styleUrls: ['./achievements.component.css'],
+    standalone: false
 })
 export class AchievementsComponent implements OnInit, AfterViewInit {
   @ViewChild('root') root!: ElementRef<HTMLElement>

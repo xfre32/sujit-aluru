@@ -14,9 +14,10 @@ import emailJs  from "@emailjs/browser";
 import {SharedService} from "../shared/services/shared.service";
 
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+    selector: 'app-home',
+    templateUrl: './home.component.html',
+    styleUrls: ['./home.component.css'],
+    standalone: false
 })
 export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('root') root!: ElementRef<HTMLFormElement>;
@@ -29,13 +30,14 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
   imgPath = 'home_img.png';
   heroText = "Hello, I'm Sujit Aluru";
   heroDesc = "Turning pixels into smiles, one line of code at a time";
-  emailJsPublicKey = "bExVNWt7TiH8e_kmq";
-  serviceID = "service_contactMe";
-  templateID = "template_q7hqbp9";
+  emailJsPublicKey = "WjRXWoLp52Dvcr6Q3";
+  serviceID = "service_ha1yknz";
+  templateID = "template_04ejdtt";
   templateParams = {
-    from_name: '',
+    name: '',
     message: '',
-    reply_to: ''
+    email: '',
+    title: ''
   }
   mailSentLoader = false;
   toastMessage = "";
@@ -65,9 +67,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         toastBootstrap.show();
         formSubject.classList.remove('was-validated')
         this.templateParams = {
-          from_name: '',
+          name: '',
           message: '',
-          reply_to: ''
+          email: '',
+          title: ''
         }
     },
     (error) => {
@@ -277,12 +280,13 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
     imgPath: 'assets/home/get-in-touch_img.png',
     formElements: [
       {
-        fieldType: 'IT',
+        fieldType: 'IN',
         inputType: 'text',
         cols: 'col-md-5',
-        id: 'full-name',
+        id: 'name',
         placeholder: 'John Doe',
-        label: 'Name'
+        label: 'Name',
+        bindVal: this.templateParams.name
       },
       {
         fieldType: 'IE',
@@ -290,7 +294,17 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         cols: 'col-md-5',
         id: 'email',
         placeholder: 'Email Address',
-        label: 'Email Address'
+        label: 'Email Address',
+        bindVal: this.templateParams.email
+      },
+      {
+        fieldType: 'IT',
+        inputType: 'text',
+        cols: 'col-md-10',
+        id: 'title',
+        placeholder: 'Subject',
+        label: 'Subject',
+        bindVal: this.templateParams.title
       },
       {
         fieldType: 'T',
@@ -298,7 +312,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         cols: 'col-md-10',
         id: 'message',
         placeholder: 'Your Message',
-        label: 'Your Message'
+        label: 'Your Message',
+        bindVal: this.templateParams.message
       },
       {
         fieldType: 'B',
@@ -306,7 +321,8 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
         cols: 'col-md-2 align-self-end',
         id: 'Send',
         placeholder: '',
-        label: ''
+        label: '',
+        bindVal: ''
       }
     ]
   }

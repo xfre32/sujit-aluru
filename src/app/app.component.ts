@@ -4,9 +4,10 @@ import {SharedService} from "./shared/services/shared.service";
 import { BreakpointObserver } from '@angular/cdk/layout';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    templateUrl: './app.component.html',
+    styleUrls: ['./app.component.css'],
+    standalone: false
 })
 export class AppComponent implements OnInit {
 
@@ -20,11 +21,6 @@ export class AppComponent implements OnInit {
   @HostListener('window:scroll', ['$event'])
   onScroll() {
     this.sharedService.isScrolling = window.scrollY !== 0;
-  }
-
-  @HostListener('window:scrollend', ['$event'])
-  onScrollEnd() {
-    this.sharedService.isScrolling = false;
   }
 
   @HostListener('document:keydown', ['$event'])

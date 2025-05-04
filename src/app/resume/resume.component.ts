@@ -2,9 +2,10 @@ import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/
 import {SharedService} from "../shared/services/shared.service";
 
 @Component({
-  selector: 'app-resume',
-  templateUrl: './resume.component.html',
-  styleUrls: ['./resume.component.css']
+    selector: 'app-resume',
+    templateUrl: './resume.component.html',
+    styleUrls: ['./resume.component.css'],
+    standalone: false
 })
 export class ResumeComponent implements OnInit, AfterViewInit {
   @ViewChild('root') root!: ElementRef;

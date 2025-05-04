@@ -2,9 +2,10 @@ import {AfterViewInit, Component, ElementRef, Input, OnInit, ViewChild} from '@a
 import {SharedService} from "../../services/shared.service";
 
 @Component({
-  selector: 'app-hero',
-  templateUrl: './hero.component.html',
-  styleUrls: ['./hero.component.css']
+    selector: 'app-hero',
+    templateUrl: './hero.component.html',
+    styleUrls: ['./hero.component.css'],
+    standalone: false
 })
 export class HeroComponent implements OnInit, AfterViewInit {
   @ViewChild('heroSectionContainer') heroSectionContainer!: ElementRef<HTMLElement>
