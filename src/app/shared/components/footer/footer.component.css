@@ -17,7 +17,7 @@
   display: inline-block;
   transition: all 0.1s ease-out;
   font-weight: 300;
-  font-family: 'Geologica', sans-serif;
+  font-family: 'Bricolage Grotesque', 'Geologica', sans-serif;
 }
 
 .menu__link:hover {
@@ -30,7 +30,7 @@
 
 .footer p {
   font-weight: 100;
-  font-family: 'Geologica', sans-serif;
+  font-family: 'Bricolage Grotesque', 'Geologica', sans-serif;
 }
 
 .wave {
