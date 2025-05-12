@@ -190,22 +190,22 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       caption: 'Companies I\'ve worked for in the past',
       items: [
         {
-          org: 'The Qrious Box',
-          role: 'Junior Developer Intern',
-          duration: 'Jul - Sep, 2021',
-          description: 'Worked with a FE team in developing digital platforms for various manufacturing companies.'
+          org: 'LTIMindtree',
+          role: 'Senior Software Engineer',
+          duration: 'Nov 2022 - present',
+          description: 'Working with a Team in developing various platforms that facilitates data capture and visualization.'
         },
         {
-          org: 'LTI - Larsen & Toubro Infotech',
+          org: 'LTIMindtree',
           role: 'Graduate Engineer Trainee',
           duration: 'Aug - Oct, 2022',
           description: 'Trained on various Web technologies and worked on a ECommerce website.'
         },
         {
-          org: 'LTIMindtree',
-          role: 'Senior Software Engineer',
-          duration: 'Nov 2022 - present',
-          description: 'Working with a Team in developing various platforms that facilitates data capture and visualization.'
+          org: 'The Qrious Box',
+          role: 'Junior Developer Intern',
+          duration: 'Jul - Sep, 2021',
+          description: 'Worked with a FE team in developing digital platforms for various manufacturing companies.'
         }
       ]
     },
@@ -214,10 +214,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
       caption: 'Schools & Institutions I\'ve been part of',
       items: [
         {
-          org: 'D.A.V School',
-          role: 'High School',
-          duration: 'March 2014 - March 2016',
-          description: 'The foundation for my Problem Solving and Coding capabilities.'
+          org: 'SSN College of Engineering',
+          role: 'B.E. EEE',
+          duration: 'Aug 2018 - Jun 2022',
+          description: 'Self learnt various Web-Technologies and began my journey as a Developer.'
         },
         {
           org: 'S.D.A.V School',
@@ -226,10 +226,10 @@ export class HomeComponent implements OnInit, AfterViewInit, OnDestroy {
           description: 'Deep understanding of OOP and Programming languages: C/C++.'
         },
         {
-          org: 'SSN College of Engineering',
-          role: 'B.E. EEE',
-          duration: 'Aug 2018 - Jun 2022',
-          description: 'Self learnt various Web-Technologies and began my journey as a Developer.'
+          org: 'D.A.V School',
+          role: 'High School',
+          duration: 'March 2014 - March 2016',
+          description: 'The foundation for my Problem Solving and Coding capabilities.'
         }
       ]
     }
